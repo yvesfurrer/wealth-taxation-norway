@@ -1,0 +1,7 @@
+          component       statistic    2019    2020    2021    2022    2023    2024
+ Taxable net wealth       n_persons 4564959 4582843 4604338 4637354 4726901 4805655
+ Taxable net wealth amount_mill_nok 2136981 2274710 2548216 3223450 3436119 3692444
+ Taxable net wealth         avg_nok  468100  496400  553400  695100  726900  768400
+         Wealth tax       n_persons  560020  596616  667022  647591  671646  719007
+         Wealth tax amount_mill_nok   16599   17236   18454   26320   29399   31784
+         Wealth tax         avg_nok   29600   28900   27700   40600   43800   44200

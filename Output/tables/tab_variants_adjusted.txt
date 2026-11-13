@@ -1,0 +1,46 @@
+tab_variants_adjusted -- ex-1300 placebos (MDES_b) and year effects of the confounder variants
+year_effect: manual BJS imputation (FE + indicators fitted on untreated obs), NOR 2022-2024.
+
+type            sample unit  outcome          year     value       se        p    N
+placebo_ex1300  main   SWE   y_main_ex1300            -0.888    0.425   0.1278   36
+placebo_ex1300  main   DNK   y_main_ex1300            -0.748    0.489   0.2237   36
+placebo_ex1300  main   FIN   y_main_ex1300             0.945    0.412   0.1053   36
+placebo_ex1300  main   ISL   y_main_ex1300             0.731    0.553   0.2776   36
+placebo_ex1300  full   SWE   y_main_ex1300            -0.886    0.560   0.2119   60
+placebo_ex1300  full   DNK   y_main_ex1300            -1.034    0.629   0.1988   60
+placebo_ex1300  full   FIN   y_main_ex1300             0.582    0.615   0.4138   60
+placebo_ex1300  full   ISL   y_main_ex1300             1.343    0.453   0.0594   60
+placebo_ex1300  noind  SWE   y_main_ex1300            -0.461    0.412   0.3449   60
+placebo_ex1300  noind  DNK   y_main_ex1300            -0.742    0.346   0.1214   60
+placebo_ex1300  noind  FIN   y_main_ex1300             1.000    0.229   0.0223   60
+placebo_ex1300  noind  ISL   y_main_ex1300             0.203    0.442   0.6781   60
+year_effect     main   NOR   y_main_ex1300    2022     0.945                     42
+year_effect     main   NOR   y_main_ex1300    2023     0.633                     42
+year_effect     main   NOR   y_main_ex1300    2024     0.011                     42
+year_effect     main   NOR   y_main_np        2022     0.769                     42
+year_effect     main   NOR   y_main_np        2023    -0.046                     42
+year_effect     main   NOR   y_main_np        2024    -0.562                     42
+year_effect     main   NOR   y_main_npsym     2022     0.863                     42
+year_effect     main   NOR   y_main_npsym     2023     0.232                     42
+year_effect     main   NOR   y_main_npsym     2024    -0.248                     42
+year_effect     main   NOR   y_main_max       2022     0.099                     42
+year_effect     main   NOR   y_main_max       2023    -0.203                     42
+year_effect     main   NOR   y_main_max       2024    -0.108                     42
+year_effect     main   NOR   y_main_rrbound   2022     0.420                     42
+year_effect     main   NOR   y_main_rrbound   2023     0.484                     42
+year_effect     main   NOR   y_main_rrbound   2024    -0.023                     42
+year_effect     full   NOR   y_main_ex1300    2022     0.023                     72
+year_effect     full   NOR   y_main_ex1300    2023    -0.289                     72
+year_effect     full   NOR   y_main_ex1300    2024    -0.911                     72
+year_effect     full   NOR   y_main_np        2022    -0.126                     72
+year_effect     full   NOR   y_main_np        2023    -0.940                     72
+year_effect     full   NOR   y_main_np        2024    -1.457                     72
+year_effect     full   NOR   y_main_npsym     2022    -0.031                     72
+year_effect     full   NOR   y_main_npsym     2023    -0.662                     72
+year_effect     full   NOR   y_main_npsym     2024    -1.143                     72
+year_effect     full   NOR   y_main_max       2022    -0.823                     72
+year_effect     full   NOR   y_main_max       2023    -1.125                     72
+year_effect     full   NOR   y_main_max       2024    -1.029                     72
+year_effect     full   NOR   y_main_rrbound   2022    -0.474                     72
+year_effect     full   NOR   y_main_rrbound   2023    -0.411                     72
+year_effect     full   NOR   y_main_rrbound   2024    -0.918                     72

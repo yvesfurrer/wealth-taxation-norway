@@ -1,0 +1,559 @@
+Masterarbeit.R -- run started 2026-11-13 10:45:28
+
+========================================================================
+Section 1: Data -- 2026-11-13 10:45:28
+========================================================================
+CHECK 1.1 [PASS] Norway A12 2021/2022/2023 (NOK million, exact) | 2021 299222, 2022 882800, 2023 465111
+CHECK 1.1b [PASS] Norway A112 2021 ~ 99.0 / 2022 ~ 137.2 NOK bn (+-0.3) | 99.0 / 137.2 bn
+CHECK 1.2 [PASS] Norway Mainland GDP 2022 = 3864878 NOK million (exact) | 3864878
+CHECK 1.3 [PASS] Norway OECD _T 2022 = 2481.753 NOK bn (+-0.5) | 2481.753 bn
+CHECK 1.4 [PASS] y_main Norway 2019-2024 anchors (+-0.05) | 2019 41.31, 2020 41.38, 2021 43.04, 2022 41.37, 2023 41.24, 2024 40.74
+CHECK 1.5 [PASS] sum(A1..A4) vs OECD _T Norway within 0.6% every year | max rel diff 0.474% (2020)
+CHECK 1.6 [PASS] Cash crosscheck 07391 petroleum 2022 (+-1) & 07022 region sum (0.1%) | petroleum 713622; region sum 1736303 vs 07391 1735964 (diff 0.0195%)
+CHECK 1.7 [PASS] Nordics rows identical across OECD files (max abs diff < 0.001) | 540 matched rows, max abs diff 0.000000
+CHECK 1.8 [PASS] panel_nordics: 75 rows (5x15), no NA in y_main, y_h2, treat; panel_west: 165 rows (11x15), no NA in y_main, y_h2, y_pit | 75 rows, NA counts y_main=0 y_h2=0 treat=0; panel_west 165 rows, 11 countries, NA in outcomes 0
+CHECK 1.8b [PASS] Iceland H2 = PIT + 4200 wealth tax (2012: 0.502664); Norway y_h2 = PIT + 4210 | ISL 2012 y_h2 - pct_1100 = 0.502664
+CHECK 1.8c [PASS] OECD 1300: DNK 2022 0.394102, ISL 2010 1.629720, NOR/SWE/FIN zero; y_main_ex1300 = y_main - 1300 (controls) | DNK 2022 0.394102, ISL 2010 1.629720, DNK 2021 y_main 47.470 -> ex1300 44.989
+CHECK 1.8d [PASS] OECD 1300 West: CHE 2022 1.023297, AUT 2022 0.304299, DNK 2022 0.394102, DEU/FRA/NLD/SWE/FIN/NOR zero; y_main_ex1300 complete for all 11 units | CHE 2022 1.023297, AUT 2022 0.304299, ISL 2022 1.440856, BEL 2022 0.014085; rows 165
+------------------------------------------------------------------------
+Checks passed: 12/12
+panel_nordics.csv : 75 rows x 36 cols (DNK,FIN,ISL,NOR,SWE; 2010-2024)
+panel_west.csv    : 165 rows x 36 cols (AUT,BEL,CHE,DEU,DNK,FIN,FRA,ISL,NLD,NOR,SWE; 2010-2024)
+y_main by country (rounded to 2 decimals):
+ year   DNK   FIN   ISL   NOR   SWE
+ 2010 44.79 40.56 31.88 42.92 43.14
+ 2011 44.87 41.87 32.90 42.78 42.22
+ 2012 45.63 42.55 33.60 42.44 42.34
+ 2013 45.97 43.58 34.27 41.92 42.70
+ 2014 48.78 43.73 36.90 41.38 42.49
+ 2015 46.49 43.77 34.96 41.76 42.93
+ 2016 45.80 44.09 49.84 41.96 44.32
+ 2017 45.46 43.16 36.96 41.45 44.57
+ 2018 44.44 42.67 36.07 41.45 44.24
+ 2019 47.15 42.53 34.72 41.31 43.07
+ 2020 47.24 42.14 35.65 41.38 42.65
+ 2021 47.47 43.54 34.46 43.04 43.13
+ 2022 42.05 43.43 34.93 41.37 42.87
+ 2023 43.99 42.76 35.86 41.24 41.71
+ 2024 45.18 42.22 36.95 40.74 41.44
+Norway y_wealth (OECD 4210, % of GDP) 2019-2024: 0.46 / 0.50 / 0.43 / 0.46 / 0.58 / 0.60
+
+========================================================================
+Section 2: Descriptive statistics -- 2026-11-13 10:45:33
+========================================================================
+Norway vs control mean (unweighted), 2019-2024:
+ year y_main_NOR y_main_ctrl y_h2_NOR y_h2_ctrl
+ 2019      41.31       41.87    12.26     15.89
+ 2020      41.38       41.92    12.81     16.47
+ 2021      43.04       42.15    13.82     16.19
+ 2022      41.37       40.82    12.70     15.54
+ 2023      41.24       41.08    12.90     15.66
+ 2024      40.74       41.45    13.13     15.80
+SD of the series 2022-2024, y_main, ascending: Switzerland 0.27, Norway 0.34, Austria 0.38, Belgium 0.52, Netherlands 0.60, Finland 0.61, Germany 0.68, Sweden 0.76, Iceland 1.01, France 1.28, Denmark 1.58
+SD of the series 2022-2024, y_h2, ascending: Switzerland 0.07, Austria 0.16, Iceland 0.16, Finland 0.17, Belgium 0.19, France 0.21, Norway 0.21, Germany 0.29, Sweden 0.42, Denmark 1.07, Netherlands 1.08
+08815 Taxable net wealth, persons 2021-2024: 4604338 / 4637354 / 4726901 / 4805655
+08815 Taxable net wealth, average (NOK) 2021-2024: 553400 / 695100 / 726900 / 768400
+08815 Wealth tax, persons 2021-2024: 667022 / 647591 / 671646 / 719007
+08815 Wealth tax, average (NOK) 2021-2024: 27700 / 40600 / 43800 / 44200
+Files written:
+  Output/figures/fig_y_main.pdf
+  Output/figures/fig_y_main.png
+  Output/figures/fig_y_h2.pdf
+  Output/figures/fig_y_h2.png
+  Output/figures/fig_wealth.pdf
+  Output/figures/fig_wealth.png
+  Output/figures/fig_headline_vs_mainland.pdf
+  Output/figures/fig_headline_vs_mainland.png
+  Output/figures/fig_deviations.pdf
+  Output/figures/fig_deviations.png
+  Output/tables/tab_summary.csv
+  Output/tables/tab_summary.txt
+  Output/tables/tab_wealth_stats.csv
+  Output/tables/tab_wealth_stats.txt
+
+========================================================================
+Section 3: TWFE DiD, Nordic comparison group -- 2026-11-13 10:45:36
+========================================================================
+CHECK 3.1 [PASS] TWFE control values: main 0.613, full -0.282, noind 0.069/0.339/0.112/-0.090 (tol 0.002) | main 0.613, full -0.282, noind 0.069/0.339/0.112/-0.090
+fwildclusterboot 0.14.3; Webb B=9999; MDES_a = 3.72 x cluster SE (t, 4 df)
+
+1) Table 4.1 (coef on treat, pp of GDP):
+   main    y_main  coef   0.613  se  0.625  p_clust 0.3822  p_webb 0.4777  MDES_a  2.32  MDES_b  1.75  rank 5/5 (p 1.00, p_loss 0.60)
+   main    y_h2    coef   0.824  se  0.398  p_clust 0.1071  p_webb 0.4025  MDES_a  1.48  MDES_b  1.25  rank 3/5 (p 0.60, p_loss 0.80)
+   main    y_pit   coef   0.619  se  0.398  p_clust 0.1951  p_webb 0.4073  MDES_a  1.48  MDES_b  1.26  rank 3/5 (p 0.60, p_loss 0.80)
+   main    y_cit   coef   0.189  se  0.080  p_clust 0.0775  p_webb 0.4521  MDES_a  0.30  MDES_b  0.29  rank 2/5 (p 0.40, p_loss 1.00)
+   full    y_main  coef  -0.282  se  0.765  p_clust 0.7313  p_webb 0.7015  MDES_a  2.84  MDES_b  2.23  rank 5/5 (p 1.00, p_loss 0.60)
+   full    y_h2    coef   0.311  se  0.338  p_clust 0.4095  p_webb 0.4915  MDES_a  1.26  MDES_b  1.18  rank 4/5 (p 0.80, p_loss 0.60)
+   full    y_pit   coef   0.079  se  0.351  p_clust 0.8327  p_webb 0.8747  MDES_a  1.31  MDES_b  1.25  rank 5/5 (p 1.00, p_loss 0.40)
+   full    y_cit   coef  -0.094  se  0.106  p_clust 0.4242  p_webb 0.4919  MDES_a  0.39  MDES_b  0.37  rank 4/5 (p 0.80, p_loss 0.40)
+   noind   y_main  coef   0.069  se  0.606  p_clust 0.9149  p_webb         MDES_a  2.25  MDES_b  2.00  rank 5/5 (p 1.00, p_loss 0.60)
+   noind   y_h2    coef   0.339  se  0.316  p_clust 0.3437  p_webb         MDES_a  1.17  MDES_b  1.15  rank 3/5 (p 0.60, p_loss 0.80)
+   noind   y_pit   coef   0.112  se  0.330  p_clust 0.7518  p_webb         MDES_a  1.23  MDES_b  1.21  rank 5/5 (p 1.00, p_loss 0.40)
+   noind   y_cit   coef  -0.090  se  0.107  p_clust 0.4483  p_webb         MDES_a  0.40  MDES_b  0.37  rank 4/5 (p 0.80, p_loss 0.40)
+
+2) Country placebos (coef), by sample:
+   main    SWE  y_main  -0.775  y_h2  -1.254  y_pit  -1.257  y_cit   0.118
+   main    DNK  y_main  -1.753  y_h2   0.481  y_pit   0.478  y_cit   0.107
+   main    FIN  y_main   1.058  y_h2   0.912  y_pit   0.909  y_cit  -0.293
+   main    ISL  y_main   1.557  y_h2  -0.147  y_pit  -0.138  y_cit   0.072
+   full    SWE  y_main  -0.738  y_h2  -1.184  y_pit  -1.250  y_cit  -0.004
+   full    DNK  y_main  -2.218  y_h2   0.480  y_pit   0.428  y_cit   0.107
+   full    FIN  y_main   0.729  y_h2   0.537  y_pit   0.471  y_cit  -0.371
+   full    ISL  y_main   2.226  y_h2   0.178  y_pit   0.364  y_cit   0.275
+   noind   SWE  y_main  -0.283  y_h2  -1.149  y_pit  -1.207  y_cit  -0.001
+   noind   DNK  y_main  -1.998  y_h2   0.307  y_pit   0.249  y_cit   0.134
+   noind   FIN  y_main   1.179  y_h2   0.566  y_pit   0.507  y_cit  -0.367
+   noind   ISL  y_main   1.101  y_h2   0.276  y_pit   0.451  y_cit   0.233
+
+3) Timing placebos (y_main):
+   main    NOR  coef   0.172  se  0.401  p 0.6901  (pre-period only (<= 2020), fake treatment from 2018)
+   main    SWE  coef  -0.174  se  0.399  p 0.6853  (pre-period only (<= 2020), fake treatment from 2018)
+   main    DNK  coef   1.064  se  0.225  p 0.0092  (pre-period only (<= 2020), fake treatment from 2018)
+   main    FIN  coef  -0.949  se  0.272  p 0.0250  (pre-period only (<= 2020), fake treatment from 2018)
+   main    ISL  coef  -0.139  se  0.304  p 0.6717  (pre-period only (<= 2020), fake treatment from 2018)
+   full    NOR  coef  -1.296  se  0.273  p 0.0090  (pre-period only (<= 2021), fake treatment from 2016)
+   full    SWE  coef   0.552  se  0.408  p 0.2469  (pre-period only (<= 2021), fake treatment from 2016)
+   full    DNK  coef  -0.034  se  0.610  p 0.9587  (pre-period only (<= 2021), fake treatment from 2016)
+   full    FIN  coef  -0.313  se  0.445  p 0.5203  (pre-period only (<= 2021), fake treatment from 2016)
+   full    ISL  coef   1.189  se  0.338  p 0.0244  (pre-period only (<= 2021), fake treatment from 2016)
+   noind   NOR  coef  -1.786  se  0.931  p 0.1274  (pre-period only (<= 2021), fake treatment from 2016)
+   noind   SWE  coef   0.042  se  1.056  p 0.9705  (pre-period only (<= 2021), fake treatment from 2016)
+   noind   DNK  coef  -1.029  se  1.016  p 0.3685  (pre-period only (<= 2021), fake treatment from 2016)
+   noind   FIN  coef  -0.814  se  1.032  p 0.4742  (pre-period only (<= 2021), fake treatment from 2016)
+   noind   ISL  coef   3.587  se  0.326  p 0.0004  (pre-period only (<= 2021), fake treatment from 2016)
+
+Files: tab_main_did, tab_placebos
+
+========================================================================
+Section 4: Western European comparison group, design-based inference -- 2026-11-13 10:45:38
+========================================================================
+CHECK 4.5 [PASS] MDES_a uses G-1 df: Nordic (4 df) equals Section 3, West (10 df) = 3.11 x cluster SE | West main y_main MDES_a 0.996 (SE 0.321), factor 3.107
+CHECK 4.1 [PASS] Nordic TWFE = Section 3 (0.613 / -0.282); West (10 donors) = Table 4.1 (0.177 / -0.695) | nordic 0.613/-0.282 west 0.177/-0.695
+CHECK 4.2 [PASS] donor counts: West 10, Nordic 4 | nordic y_main 4; nordic y_h2 4; nordic y_pit 4; west y_main 10; west y_h2 10; west y_pit 10
+CHECK 4.3 [PASS] p granularity: West 1/11, Nordic 1/5; 90% set unbounded on the Nordic pool | West CS90 student [-0.28, 0.63] raw [-1.76, 2.11]; p(loss>=0.7) student 0.091 raw 0.364
+CHECK 4.4 [PASS] France OECD 4210 in % of GDP, Appendix A3: 0.22 (2015-2017) -> 0.08 (2018-2024) | FRA 0.224 -> 0.084; CHE 1.03 -> 1.13
+TWFE by pool (coef (cluster SE); studentised rank/N+1; 90% CS student; 90% CS raw (unbounded = [-8, 8]); p(loss>=d1=0.70) p(loss>=d2=0.27) p(loss>=1.75) student; break-even bias student/raw):
+   nordic main y_main +0.613 (0.625) s_NOR 0.222 | rank  1/ 5 | CS90 st [-8.00, +8.00] lb90 -8.00 lb95 -8.00 | CS90 raw [-8.00, +8.00] | p d1 0.200 d2 0.200 1.75 0.200 | MDES_a (G-1 df) 2.32 | break-even (delta 0.70) st NA raw NA
+   nordic main y_h2   +0.824 (0.398) s_NOR 0.188 | rank  1/ 5 | CS90 st [-8.00, +8.00] lb90 -8.00 lb95 -8.00 | CS90 raw [-8.00, +8.00] | p d1 0.200 d2 0.200 1.75 0.200 | MDES_a (G-1 df) 1.48 | break-even (delta 0.70) st NA raw NA
+   nordic main y_pit  +0.619 (0.398) s_NOR 0.205 | rank  1/ 5 | CS90 st [-8.00, +8.00] lb90 -8.00 lb95 -8.00 | CS90 raw [-8.00, +8.00] | p d1 0.200 d2 0.200 1.75 0.200 | MDES_a (G-1 df) 1.48 | break-even (delta 0.27) st NA raw NA
+   nordic full y_main -0.282 (0.765) s_NOR 1.036 | rank  5/ 5 | CS90 st [-8.00, +8.00] lb90 -8.00 lb95 -8.00 | CS90 raw [-8.00, +8.00] | p d1 0.600 d2 0.600 1.75 0.400 | MDES_a (G-1 df) 2.84 | break-even (delta 0.70) st NA raw NA
+   nordic full y_h2   +0.311 (0.338) s_NOR 0.520 | rank  4/ 5 | CS90 st [-8.00, +8.00] lb90 -8.00 lb95 -8.00 | CS90 raw [-8.00, +8.00] | p d1 0.200 d2 0.400 1.75 0.200 | MDES_a (G-1 df) 1.26 | break-even (delta 0.70) st NA raw NA
+   nordic full y_pit  +0.079 (0.351) s_NOR 0.523 | rank  5/ 5 | CS90 st [-8.00, +8.00] lb90 -8.00 lb95 -8.00 | CS90 raw [-8.00, +8.00] | p d1 0.200 d2 0.600 1.75 0.200 | MDES_a (G-1 df) 1.31 | break-even (delta 0.27) st NA raw NA
+   west   main y_main +0.177 (0.321) s_NOR 0.275 | rank  9/11 | CS90 st [-0.28, +0.63] lb90 -0.26 lb95 -8.00 | CS90 raw [-1.76, +2.11] | p d1 0.091 d2 0.091 1.75 0.091 | MDES_a (G-1 df) 1.00 | break-even (delta 0.70) st +0.433 raw -0.498
+   west   main y_h2   +0.433 (0.199) s_NOR 0.223 | rank  2/11 | CS90 st [-0.10, +0.97] lb90 +0.02 lb95 -8.00 | CS90 raw [-1.04, +1.90] | p d1 0.091 d2 0.091 1.75 0.091 | MDES_a (G-1 df) 0.62 | break-even (delta 0.70) st +0.712 raw +0.057
+   west   main y_pit  +0.228 (0.200) s_NOR 0.240 | rank  4/11 | CS90 st [-0.35, +0.80] lb90 -0.22 lb95 -8.00 | CS90 raw [-1.24, +1.70] | p d1 0.091 d2 0.091 1.75 0.091 | MDES_a (G-1 df) 0.62 | break-even (delta 0.27) st +0.045 raw -0.577
+   west   full y_main -0.695 (0.390) s_NOR 1.148 | rank  9/11 | CS90 st [-3.62, +2.23] lb90 -2.98 lb95 -8.00 | CS90 raw [-2.97, +1.58] | p d1 0.636 d2 0.636 1.75 0.455 | MDES_a (G-1 df) 1.21 | break-even (delta 0.70) st -2.287 raw -1.932
+   west   full y_h2   +0.009 (0.199) s_NOR 0.497 | rank 11/11 | CS90 st [-1.35, +1.37] lb90 -1.00 lb95 -8.00 | CS90 raw [-1.31, +1.33] | p d1 0.273 d2 0.364 1.75 0.091 | MDES_a (G-1 df) 0.62 | break-even (delta 0.70) st -0.303 raw -0.496
+   west   full y_pit  -0.189 (0.201) s_NOR 0.486 | rank  8/11 | CS90 st [-1.54, +1.17] lb90 -1.18 lb95 -8.00 | CS90 raw [-1.52, +1.15] | p d1 0.273 d2 0.455 1.75 0.091 | MDES_a (G-1 df) 0.63 | break-even (delta 0.27) st -0.914 raw -1.108
+Wealth taxes of the Western European donors (OECD 4210, % of GDP; Appendix A3):
+   CHE  mean 2015-2017 1.03  mean 2018-2024 1.13  range 2010-2024 0.86 to 1.18
+   FRA  mean 2015-2017 0.22  mean 2018-2024 0.08  range 2010-2024 0.08 to 0.25
+Files: tab_pools, tab_placebos_pools, tab_scales, tab_inference, tab_west_wealthtax
+
+========================================================================
+Section 5: Event study and placebo bands -- 2026-11-13 10:45:39
+========================================================================
+CHECK 5.2 [PASS] West pool: mean of the imputation year effects = TWFE coefficient of Section 4 (main and full, 3 outcomes) | max diff 1.63e-14; main y_main avg +0.177, y_h2 +0.433
+BJS imputation (didimputation 0.5.1), first stage iso + year FE + indicators;
+main: reference 2020, pre 2015-2020; full: reference 2021, pre 2010-2021; pools nordic and west.
+Year effects (pp of GDP, 95% CI), average, drift, Wald-HC1 p:
+   nordic main  y_main  2022 +1.162 [-0.43, +2.76]  2023 +0.776 [-0.14, +1.70]  2024 -0.100 [-1.26, +1.06] | avg +0.613 | drift -0.010 (p 0.948) | Wald-HC1 p 0.8331
+   nordic main  y_h2    2022 +0.744 [+0.16, +1.33]  2023 +0.820 [-0.00, +1.64]  2024 +0.910 [+0.05, +1.77] | avg +0.824 | drift -0.075 (p 0.615) | Wald-HC1 p 0.9322
+   nordic main  y_pit   2022 +0.575 [-0.01, +1.16]  2023 +0.601 [-0.22, +1.42]  2024 +0.680 [-0.18, +1.54] | avg +0.619 | drift -0.087 (p 0.568) | Wald-HC1 p 0.9090
+   nordic main  y_cit   2022 +1.020 [+0.85, +1.19]  2023 +0.146 [-0.03, +0.32]  2024 -0.599 [-0.96, -0.24] | avg +0.189 | drift -0.006 (p 0.822) | Wald-HC1 p 0.0000
+   nordic full  y_main  2022 +0.268 [-1.45, +1.98]  2023 -0.119 [-1.24, +1.00]  2024 -0.995 [-2.38, +0.39] | avg -0.282 | drift -0.226 (p 0.005) | Wald-HC1 p 0.0000
+   nordic full  y_h2    2022 +0.230 [-0.29, +0.75]  2023 +0.306 [-0.44, +1.06]  2024 +0.396 [-0.38, +1.17] | avg +0.311 | drift -0.106 (p 0.099) | Wald-HC1 p 0.0000
+   nordic full  y_pit   2022 +0.035 [-0.53, +0.60]  2023 +0.062 [-0.70, +0.82]  2024 +0.141 [-0.64, +0.92] | avg +0.079 | drift -0.113 (p 0.134) | Wald-HC1 p 0.0000
+   nordic full  y_cit   2022 +0.737 [+0.64, +0.83]  2023 -0.138 [-0.39, +0.12]  2024 -0.882 [-1.27, -0.49] | avg -0.094 | drift -0.086 (p 0.014) | Wald-HC1 p 0.0000
+   west   main  y_main  2022 +0.466 [-0.36, +1.29]  2023 +0.427 [-0.20, +1.05]  2024 -0.362 [-1.03, +0.31] | avg +0.177 | drift -0.095 (p 0.324) | Wald-HC1 p 0.2714 | pre: 2015 +0.38 2016 +0.43 2017 -0.33 2018 -0.08 2019 -0.09
+   west   main  y_h2    2022 +0.348 [+0.01, +0.69]  2023 +0.463 [+0.03, +0.90]  2024 +0.488 [-0.02, +1.00] | avg +0.433 | drift -0.098 (p 0.179) | Wald-HC1 p 0.1356 | pre: 2015 +0.41 2016 +0.24 2017 -0.11 2018 -0.16 2019 -0.21
+   west   main  y_pit   2022 +0.180 [-0.16, +0.52]  2023 +0.244 [-0.20, +0.68]  2024 +0.260 [-0.25, +0.77] | avg +0.228 | drift -0.108 (p 0.144) | Wald-HC1 p 0.0975 | pre: 2015 +0.47 2016 +0.28 2017 -0.10 2018 -0.15 2019 -0.20
+   west   full  y_main  2022 -0.406 [-1.33, +0.52]  2023 -0.445 [-1.19, +0.30]  2024 -1.234 [-1.99, -0.48] | avg -0.695 | drift -0.241 (p 0.000) | Wald-HC1 p 0.0000 | pre: 2010 +2.03 2011 +1.51 2012 +0.58 2013 -0.54 2014 -1.39 2015 -1.04 2016 -0.94 2017 -1.75 2018 -1.50 2019 -1.51 2020 -1.42
+   west   full  y_h2    2022 -0.076 [-0.41, +0.26]  2023 +0.040 [-0.41, +0.48]  2024 +0.064 [-0.44, +0.57] | avg +0.009 | drift -0.077 (p 0.036) | Wald-HC1 p 0.0000 | pre: 2010 -0.14 2011 -0.06 2012 -0.24 2013 -0.64 2014 -1.06 2015 -0.82 2016 -0.96 2017 -1.34 2018 -1.39 2019 -1.44 2020 -1.23
+   west   full  y_pit   2022 -0.237 [-0.58, +0.11]  2023 -0.172 [-0.62, +0.27]  2024 -0.157 [-0.66, +0.35] | avg -0.189 | drift -0.076 (p 0.057) | Wald-HC1 p 0.0000 | pre: 2010 -0.17 2011 -0.08 2012 -0.24 2013 -0.64 2014 -1.00 2015 -0.76 2016 -0.92 2017 -1.33 2018 -1.38 2019 -1.43 2020 -1.23
+Files: tab_event
+
+CHECK 5.1 [PASS] Norway year effects (NOR x year TWFE) = imputation effects above, Nordic and West pool (single treated unit) | max diff 0.00e+00
+Year-effect bands (main, y_main): year | NOR vs Nordic | Nordic range (st) | NOR vs West | West range (st) | West range (raw)
+   2015 +0.264 | [-0.21, +0.34] | +0.302 | [-0.43, +0.49] | [-1.35, +1.09]
+   2016 -0.138 | [-0.16, +0.16] | +0.337 | [-0.31, +0.38] | [-0.50, +0.99]
+   2017 -0.385 | [-0.19, +0.23] | -0.343 | [-0.29, +0.36] | [-0.91, +1.01]
+   2018 +0.159 | [-0.25, +0.30] | -0.119 | [-0.39, +0.34] | [-1.68, +0.58]
+   2019 +0.041 | [-0.23, +0.25] | -0.131 | [-0.32, +0.37] | [-0.88, +1.15]
+   2020 +0.059 | [-0.27, +0.26] | -0.046 | [-0.39, +0.39] | [-1.25, +1.26]
+   2022 +1.162 | [-0.67, +0.92] | +0.466 | [-0.89, +0.80] | [-3.77, +1.45]
+   2023 +0.776 | [-0.37, +0.45] | +0.427 | [-0.80, +0.71] | [-1.53, +2.22]
+   2024 -0.100 | [-0.64, +0.73] | -0.362 | [-1.37, +0.69] | [-1.93, +1.91]
+Files: tab_event_bands, tab_event_nor, fig_event_bands_both (Figure 4.3), fig_event_main_bands, fig_event_h2_bands
+
+========================================================================
+Section 6: Synthetic DiD -- 2026-11-13 10:45:42
+========================================================================
+CHECK 6.1 [PASS] Nordic pool: NOR + 4 donors, 15 years each, no NA in y_main and y_h2 | DNK n=15, FIN n=15, ISL n=15, NOR n=15, SWE n=15
+CHECK 6.2 [PASS] Nordics identical in panel_nordics and panel_west (<1e-9); treat = NOR 2022-2024 only | max abs diff 0.00e+00; treated obs 3
+CHECK 6.3 [PASS] balanced matrices for 2 outcomes x 3 variants, Nordic pool (N0 = 4, T0 = 12/11/6) | y_main|nordic|full N0=4 T0=12; y_main|nordic|ex2021 N0=4 T0=11; y_main|nordic|main N0=4 T0=6; y_h2|nordic|full N0=4 T0=12; y_h2|nordic|ex2021 N0=4 T0=11; y_h2|nordic|main N0=4 T0=6
+CHECK 6.4 [PASS] did_estimate Nordic pool (2010-2024) equals TWFE without indicators of Section 3 (tol 1e-6) | did y_main 0.069034 vs 0.069034; y_h2 0.338878 vs 0.338878
+CHECK 6.5 [PASS] all 10 estimations: weights nonnegative, omega sums 1, lambda sums 1 (sdid/did) or 0 (sc) | all simplex constraints satisfied
+synthdid 0.0.9; Nordic pool, N0 = 4; variants full / ex2021 / main
+1) Nordic pool, estimates (pp of GDP, placebo SE, 95% CI):
+   y_main  nordic     full    sdid    +0.584  SE  3.635  CI [-6.541, +7.709]  [few donors, placebo SE unreliable]
+   y_main  nordic     full    sc      -0.690  SE  3.260  CI [-7.080, +5.701]  [few donors, placebo SE unreliable]
+   y_main  nordic     full    did     +0.069  SE  1.295  CI [-2.470, +2.608]  [few donors, placebo SE unreliable]
+   y_main  nordic     ex2021  sdid    +0.583  SE  3.794  CI [-6.853, +8.020]  [few donors, placebo SE unreliable]
+   y_main  nordic     main    sdid    +0.831  SE  4.276  CI [-7.550, +9.212]  [few donors, placebo SE unreliable]
+   y_h2    nordic     full    sdid    +0.411  SE  0.957  CI [-1.464, +2.286]  [few donors, placebo SE unreliable]
+   y_h2    nordic     full    sc      -0.075  SE  4.836  CI [-9.554, +9.404]  [few donors, placebo SE unreliable]
+   y_h2    nordic     full    did     +0.339  SE  0.667  CI [-0.969, +1.647]  [few donors, placebo SE unreliable]
+   y_h2    nordic     ex2021  sdid    +0.418  SE  0.968  CI [-1.479, +2.315]  [few donors, placebo SE unreliable]
+   y_h2    nordic     main    sdid    +0.614  SE  1.233  CI [-1.802, +3.030]  [few donors, placebo SE unreliable]
+2) sdid weights (top-5 units | top-3 time):
+   y_main  nordic     full    units: SWE 0.31, DNK 0.30, FIN 0.29, ISL 0.10 | time: 2013 0.57, 2018 0.28, 2016 0.15
+   y_main  nordic     ex2021  units: SWE 0.31, DNK 0.29, FIN 0.29, ISL 0.11 | time: 2013 0.57, 2018 0.28, 2016 0.15
+   y_main  nordic     main    units: DNK 0.29, SWE 0.28, FIN 0.27, ISL 0.16 | time: 2015 0.51, 2018 0.36, 2016 0.13
+   y_h2    nordic     full    units: FIN 0.44, SWE 0.27, ISL 0.16, DNK 0.12 | time: 2012 0.38, 2014 0.35, 2020 0.27
+   y_h2    nordic     ex2021  units: FIN 0.46, SWE 0.30, ISL 0.14, DNK 0.10 | time: 2012 0.38, 2014 0.35, 2020 0.27
+   y_h2    nordic     main    units: FIN 0.32, DNK 0.31, SWE 0.23, ISL 0.14 | time: 2015 0.50, 2020 0.50, 2016 0.00
+2) Western European pool, estimates:
+   y_main full   sdid -0.044 (1.471) [-2.93, +2.84] N0 10
+   y_main full   sc   +0.488 (3.467) [-6.31, +7.28] N0 10
+   y_main full   did  -0.550 (1.123) [-2.75, +1.65] N0 10
+   y_main ex2021 sdid +0.443 (1.433) [-2.37, +3.25] N0 10
+   y_main main   sdid +0.343 (1.298) [-2.20, +2.89] N0 10
+   y_h2   full   sdid -0.494 (0.732) [-1.93, +0.94] N0 10
+   y_h2   full   sc   -0.021 (3.499) [-6.88, +6.84] N0 10
+   y_h2   full   did  +0.024 (0.645) [-1.24, +1.29] N0 10
+   y_h2   ex2021 sdid +0.166 (0.728) [-1.26, +1.59] N0 10
+   y_h2   main   sdid +0.477 (0.745) [-0.98, +1.94] N0 10
+Files: tab_sdid, tab_sdid_weights, tab_sdid_west, tab_sdid_west_weights, tab_estimators, fig_sdid_west, fig_sdid_west_ex2021
+
+========================================================================
+Section 7: Robustness -- 2026-11-13 10:46:25
+========================================================================
+CHECK 7.1 [PASS] Brent annual means 2010-2024 complete, plausible range | source Data/Raw/brent_annual.csv
+CHECK 7.2 [PASS] A112 excess over 2010-2021 trend ~ +0.74/+0.29/-0.08 (control values, tol 0.03) | full-trend +0.74/+0.29/-0.08; main-trend (2015-2020) +0.24/-0.34/-0.83
+CHECK 7.3 [PASS] ladder baselines equal Table 4.1 (tol 1e-6) | 20 rows
+CHECK 7.4 [PASS] noind control values: rrbound -0.25, ex1300 -0.065, np -0.490, max -0.665, MDES_b(ex1300) 1.00 (tol 0.05) | rrbound -0.250, ex1300 -0.065, np -0.490, max -0.665, MDES_b 1.000
+CHECK 7.5 [PASS] sample variant control values: 2015-2024 with 2021 0.387/0.650, noind 0.069 | incl2021 +0.387/+0.650, noind +0.069
+CHECK 7.6 [PASS] Norway-only corrections leave the West placebos and s_NOR unchanged and shift the estimate one for one | max |placebo diff| 0.0e+00; s_NOR 0.2748 = 0.2748; shift 0.5591 = mean adjustment 0.5591
+CHECK 7.6b [PASS] symmetric corrections: s_NOR unchanged, H2 rises by the mean relief adjustment, H1 falls by the mean net non-package adjustment | H2 +0.4328 -> +0.6617 (mean relief 0.2289 pp); H1 +0.1772 -> -0.1530 (mean net non-package 0.3302 pp, gross 0.5591)
+CHECK 7.9 [PASS] ex-1300 Western pool: Denmark's placebo and the largest |placebo| shrink against the raw control series; ten placebos | DNK placebo -1.939 -> -1.081; max |placebo| 1.939 (DNK) -> 1.307 (NLD); b_NOR +0.177 -> +0.116; s_NOR 0.2748 -> 0.2630
+CHECK 7.10 [PASS] scale sensitivity (y_main, y_h2) reproduces the studentised 90% set (grid tolerance 0.01) and the smallest loss rejected at the estimated s_NOR, and the rejection switches exactly at the break-even s, which lies inside the 90% chi-square interval for y_main and above it for y_h2 | y_main: s_NOR 0.2748 (n_pre 6), chi-square 90% interval 0.185 to 0.574, break-even s 0.542, cs90_lo at interval ends -0.13 / -0.78, delta_min at interval ends +0.12 / +0.75; y_h2: s_NOR 0.2225 (n_pre 6), chi-square 90% interval 0.150 to 0.465, break-even s 0.599, cs90_lo at interval ends +0.07 / -0.69, delta_min at interval ends -0.15 / +0.45
+CHECK 7.8 [PASS] break-even West main (studentised): y_main 0.433, y_pit 0.045 (Delta2), y_h2 0.712 (Delta1); rrbound keeps, np loses the rejection (p 5/11); ex-SWE PIT 0.078, nothing rejected with nine placebos | break-even 0.433/0.045/0.712; np p 0.455 CS90 st [-0.83, +0.07] raw [-2.32, +1.55]; rrbound p 0.091; exSWE PIT 0.078 p 0.200 rank 8
+CHECK 7.11 [PASS] margin ladder at Delta1 reproduces Table 4.1 (p and break-even, both readings) and delta_min = Delta1 - break-even | delta_min studentised: H1 +0.267 (max t AUT 1.617), H2 -0.012 (max t NLD 1.890); unscaled: H1 +1.198, H2 +0.643
+CHECK 7.12 [PASS] ladder: debate margin 0.13 (NOK 4.99 bn / 2022 mainland GDP per pp); corrected H1 rows reproduce the break-even of block 4a; H2 net of the bias shifts delta_min by the bias; multiples 2 at 0.34 and 1 at 0 | 1 pp = NOK 38.65 bn, debate margin 0.1291 -> 0.13; asymmetric bias 0.0378; delta_min studentised: rrbound +0.586, np +0.826, H2 net of bias +0.026
+CHECK 7.13 [PASS] symmetric rows: H1 net of the reliefs keeps the rejection of Delta1 (the gross correction loses it); H2 with the reliefs rejects the strict Laffer margin again; the tolerance of the 0.13 rejection lies below the claimed wealth tax loss in the main analysis and above it with the reliefs | H1 npsym break-even +0.103 (np -0.126); H2 relief delta_min net of bias -0.203 (H2 net of bias +0.026); tolerance L < 0.104 pp (NOK 4.0 bn, 6.2 x Ring) main, < 0.333 pp (NOK 12.9 bn) with the reliefs; claimed wealth tax loss 0.171 pp (NOK 6.6 bn)
+Margin ladder (Table A1.14, Figure 4.2; West main): series | method | margin (multiple of the mechanical yield) | p | break-even | rejected
+   h1         student 0.70 (3.1x)  p 0.091  break-even +0.433  rejected
+   h1         student 0.50 (2.5x)  p 0.091  break-even +0.233  rejected
+   h1         student 0.34 (2.0x)  p 0.091  break-even +0.073  rejected
+   h1         student 0.13 (1.4x)  p 0.455  break-even -0.137  not rejected
+   h1         student 0.00 (1.0x)  p 0.455  break-even -0.267  not rejected
+   h1         raw     0.70 (3.1x)  p 0.364  break-even -0.498  not rejected
+   h1         raw     0.50 (2.5x)  p 0.364  break-even -0.698  not rejected
+   h1         raw     0.34 (2.0x)  p 0.455  break-even -0.858  not rejected
+   h1         raw     0.13 (1.4x)  p 0.545  break-even -1.068  not rejected
+   h1         raw     0.00 (1.0x)  p 0.545  break-even -1.198  not rejected
+   h1_rrbound student 0.70 (3.1x)  p 0.091  break-even +0.114  rejected
+   h1_rrbound student 0.50 (2.5x)  p 0.273  break-even -0.086  not rejected
+   h1_rrbound student 0.34 (2.0x)  p 0.455  break-even -0.246  not rejected
+   h1_rrbound student 0.13 (1.4x)  p 0.636  break-even -0.456  not rejected
+   h1_rrbound student 0.00 (1.0x)  p 0.636  break-even -0.586  not rejected
+   h1_rrbound raw     0.70 (3.1x)  p 0.455  break-even -0.817  not rejected
+   h1_rrbound raw     0.50 (2.5x)  p 0.545  break-even -1.017  not rejected
+   h1_rrbound raw     0.34 (2.0x)  p 0.545  break-even -1.177  not rejected
+   h1_rrbound raw     0.13 (1.4x)  p 0.636  break-even -1.387  not rejected
+   h1_rrbound raw     0.00 (1.0x)  p 0.636  break-even -1.517  not rejected
+   h1_np      student 0.70 (3.1x)  p 0.455  break-even -0.126  not rejected
+   h1_np      student 0.50 (2.5x)  p 0.545  break-even -0.326  not rejected
+   h1_np      student 0.34 (2.0x)  p 0.636  break-even -0.486  not rejected
+   h1_np      student 0.13 (1.4x)  p 0.727  break-even -0.696  not rejected
+   h1_np      student 0.00 (1.0x)  p 0.727  break-even -0.826  not rejected
+   h1_np      raw     0.70 (3.1x)  p 0.545  break-even -1.057  not rejected
+   h1_np      raw     0.50 (2.5x)  p 0.636  break-even -1.257  not rejected
+   h1_np      raw     0.34 (2.0x)  p 0.636  break-even -1.417  not rejected
+   h1_np      raw     0.13 (1.4x)  p 0.636  break-even -1.627  not rejected
+   h1_np      raw     0.00 (1.0x)  p 0.636  break-even -1.757  not rejected
+   h1_npsym   student 0.70 (3.1x)  p 0.091  break-even +0.103  rejected
+   h1_npsym   student 0.50 (2.5x)  p 0.273  break-even -0.097  not rejected
+   h1_npsym   student 0.34 (2.0x)  p 0.455  break-even -0.257  not rejected
+   h1_npsym   student 0.13 (1.4x)  p 0.636  break-even -0.467  not rejected
+   h1_npsym   student 0.00 (1.0x)  p 0.636  break-even -0.597  not rejected
+   h1_npsym   raw     0.70 (3.1x)  p 0.455  break-even -0.828  not rejected
+   h1_npsym   raw     0.50 (2.5x)  p 0.545  break-even -1.028  not rejected
+   h1_npsym   raw     0.34 (2.0x)  p 0.545  break-even -1.188  not rejected
+   h1_npsym   raw     0.13 (1.4x)  p 0.636  break-even -1.398  not rejected
+   h1_npsym   raw     0.00 (1.0x)  p 0.636  break-even -1.528  not rejected
+   h2         student 0.70 (3.1x)  p 0.091  break-even +0.712  rejected
+   h2         student 0.50 (2.5x)  p 0.091  break-even +0.512  rejected
+   h2         student 0.34 (2.0x)  p 0.091  break-even +0.352  rejected
+   h2         student 0.13 (1.4x)  p 0.091  break-even +0.142  rejected
+   h2         student 0.00 (1.0x)  p 0.091  break-even +0.012  rejected
+   h2         raw     0.70 (3.1x)  p 0.091  break-even +0.057  rejected
+   h2         raw     0.50 (2.5x)  p 0.182  break-even -0.143  not rejected
+   h2         raw     0.34 (2.0x)  p 0.182  break-even -0.303  not rejected
+   h2         raw     0.13 (1.4x)  p 0.182  break-even -0.513  not rejected
+   h2         raw     0.00 (1.0x)  p 0.273  break-even -0.643  not rejected
+   h2_bias    student 0.70 (3.1x)  p 0.091  break-even +0.674  rejected
+   h2_bias    student 0.50 (2.5x)  p 0.091  break-even +0.474  rejected
+   h2_bias    student 0.34 (2.0x)  p 0.091  break-even +0.314  rejected
+   h2_bias    student 0.13 (1.4x)  p 0.091  break-even +0.104  rejected
+   h2_bias    student 0.00 (1.0x)  p 0.182  break-even -0.026  not rejected
+   h2_bias    raw     0.70 (3.1x)  p 0.091  break-even +0.019  rejected
+   h2_bias    raw     0.50 (2.5x)  p 0.182  break-even -0.181  not rejected
+   h2_bias    raw     0.34 (2.0x)  p 0.182  break-even -0.341  not rejected
+   h2_bias    raw     0.13 (1.4x)  p 0.182  break-even -0.551  not rejected
+   h2_bias    raw     0.00 (1.0x)  p 0.273  break-even -0.681  not rejected
+   h2_relief  student 0.70 (3.1x)  p 0.091  break-even +0.903  rejected
+   h2_relief  student 0.50 (2.5x)  p 0.091  break-even +0.703  rejected
+   h2_relief  student 0.34 (2.0x)  p 0.091  break-even +0.543  rejected
+   h2_relief  student 0.13 (1.4x)  p 0.091  break-even +0.333  rejected
+   h2_relief  student 0.00 (1.0x)  p 0.091  break-even +0.203  rejected
+   h2_relief  raw     0.70 (3.1x)  p 0.091  break-even +0.248  rejected
+   h2_relief  raw     0.50 (2.5x)  p 0.091  break-even +0.048  rejected
+   h2_relief  raw     0.34 (2.0x)  p 0.182  break-even -0.112  not rejected
+   h2_relief  raw     0.13 (1.4x)  p 0.182  break-even -0.322  not rejected
+   h2_relief  raw     0.00 (1.0x)  p 0.182  break-even -0.452  not rejected
+   smallest loss rejected (studentised): h1 +0.267, h1_rrbound +0.586, h1_np +0.826, h1_npsym +0.597, h2 -0.012, h2_bias +0.026, h2_relief -0.203; (unscaled): H1 +1.198, H2 +0.643
+   asymmetric bias (H2): 0.0378 pp; 1 pp of 2022 mainland GDP = NOK 38.65 bn; debate margin 0.13
+   smallest loss rejected, NOK bn at 2022 values (studentised | unscaled): H1 10.3 | 46.3, H2 -0.5 | 24.8, H2 net of bias 1.0, H2 reliefs added back net of bias -7.9
+   non-package PIT reliefs added back to H2 (NOK bn 2022/23/24: 3.64/11.18/13.18; mean 0.229 pp): H2 +0.433 -> +0.662, one-sided bound -0.241, net of the asymmetric bias -0.203
+   rejection of the circulated figure (0.13) survives a wealth tax behavioural loss of up to 0.104 pp (NOK 4.0 bn a year, 6.2 x Ring 2026) in the main analysis and up to 0.333 pp (NOK 12.9 bn, 2.0 x the loss the figure itself assumes, 0.171 pp) with the reliefs added back
+Files: tab_margin_ladder, fig_bounds (Figure 4.2)
+CHECK 7.7 [PASS] start-year sensitivity: 2015 = main specification (both groups), 2010 = sample variant from 2010 excl. 2021 | Nordic y_main by start year: 2010 -0.23, 2011 +0.04, 2012 +0.31, 2013 +0.52, 2014 +0.65, 2015 +0.61, 2016 +0.69, 2017 +0.65
+1) Specification ladder:
+   main  y_main  baseline             +0.613  SE  0.625  p 0.3822
+   main  y_main  + log GDP pc         +0.620  SE  0.638  p 0.3864
+   main  y_main  + inflation          +0.861  SE  0.582  p 0.2134
+   main  y_main  + log population     +0.728  SE  0.594  p 0.2875
+   main  y_main  + NOR x log(Brent)   +0.282  SE  0.742  p 0.7237
+   main  y_h2    baseline             +0.824  SE  0.398  p 0.1071
+   main  y_h2    + log GDP pc         +0.810  SE  0.414  p 0.1217
+   main  y_h2    + inflation          +0.434  SE  0.497  p 0.4325
+   main  y_h2    + log population     +0.359  SE  0.519  p 0.5274
+   main  y_h2    + NOR x log(Brent)   +0.685  SE  0.687  p 0.3750
+   full  y_main  baseline             -0.282  SE  0.765  p 0.7313
+   full  y_main  + log GDP pc         -0.098  SE  0.791  p 0.9074
+   full  y_main  + inflation          -0.339  SE  0.971  p 0.7445
+   full  y_main  + log population     -0.456  SE  0.914  p 0.6441
+   full  y_main  + NOR x log(Brent)   -0.657  SE  0.813  p 0.4643
+   full  y_h2    baseline             +0.311  SE  0.338  p 0.4095
+   full  y_h2    + log GDP pc         +0.385  SE  0.374  p 0.3610
+   full  y_h2    + inflation          +0.065  SE  0.276  p 0.8253
+   full  y_h2    + log population     -0.007  SE  0.324  p 0.9845
+   full  y_h2    + NOR x log(Brent)   -0.078  SE  0.297  p 0.8059
+   -> main y_main stable: yes (max |dev.| 0.33 pp, min p 0.213)
+   -> main y_h2 stable: yes (max |dev.| 0.47 pp, min p 0.107)
+   -> full y_main stable: yes (max |dev.| 0.38 pp, min p 0.464)
+   -> full y_h2 stable: yes (max |dev.| 0.39 pp, min p 0.361)
+2) Outcome and confounder variants:
+   main   y_main_grossgdp   +3.815  SE  0.630  p 0.0038
+   main   y_main_a23        +0.604  SE  0.625  p 0.3884
+   main   y_main_vintage    +0.668  SE  0.625  p 0.3459
+   main   y_main_lpc        +0.032  SE  0.025  p 0.2681  (+3.16 percent)
+   main   y_main_rrbound    +0.294  SE  0.625  p 0.6629
+   main   y_main_ex1300     +0.529  SE  0.389  p 0.2455  p_webb 0.4216
+   main   y_main_np         +0.054  SE  0.625  p 0.9358  p_webb 0.9170
+   main   y_main_npsym      +0.282  SE  0.625  p 0.6745  p_webb 0.6609
+   main   y_main_max        -0.071  SE  0.389  p 0.8650  p_webb 0.8122
+   full   y_main_grossgdp   +2.435  SE  0.768  p 0.0338
+   full   y_main_a23        -0.317  SE  0.765  p 0.6996
+   full   y_main_vintage    -0.057  SE  0.764  p 0.9442
+   full   y_main_lpc        -0.008  SE  0.039  p 0.8402  (-0.84 percent)
+   full   y_main_rrbound    -0.601  SE  0.765  p 0.4761
+   full   y_main_ex1300     -0.393  SE  0.459  p 0.4408  p_webb 0.5052
+   full   y_main_np         -0.841  SE  0.765  p 0.3335  p_webb 0.4284
+   full   y_main_npsym      -0.612  SE  0.765  p 0.4686  p_webb 0.5001
+   full   y_main_max        -0.992  SE  0.459  p 0.0968  p_webb 0.3705
+   noind  y_main_grossgdp   +2.795  SE  0.606  p 0.0100
+   noind  y_main_a23        +0.034  SE  0.606  p 0.9582
+   noind  y_main_vintage    +0.294  SE  0.606  p 0.6529
+   noind  y_main_lpc        +0.001  SE  0.030  p 0.9819  (+0.07 percent)
+   noind  y_main_rrbound    -0.250  SE  0.606  p 0.7011
+   noind  y_main_ex1300     -0.065  SE  0.315  p 0.8472
+   noind  y_main_np         -0.490  SE  0.606  p 0.4643
+   noind  y_main_npsym      -0.261  SE  0.606  p 0.6889
+   noind  y_main_max        -0.665  SE  0.315  p 0.1028
+   ex-1300 placebos: main/SWE -0.888, main/DNK -0.748, main/FIN +0.945, main/ISL +0.731, full/SWE -0.886, full/DNK -1.034, full/FIN +0.582, full/ISL +1.343, noind/SWE -0.461, noind/DNK -0.742, noind/FIN +1.000, noind/ISL +0.203
+   MDES_b(ex1300): full 1.343, main 0.945, noind 1.000
+   year effects main  y_main_ex1300   2022 +0.945  2023 +0.633  2024 +0.011
+   year effects main  y_main_np       2022 +0.769  2023 -0.046  2024 -0.562
+   year effects main  y_main_npsym    2022 +0.863  2023 +0.232  2024 -0.248
+   year effects main  y_main_max      2022 +0.099  2023 -0.203  2024 -0.108
+   year effects main  y_main_rrbound  2022 +0.420  2023 +0.484  2024 -0.023
+   year effects full  y_main_ex1300   2022 +0.023  2023 -0.289  2024 -0.911
+   year effects full  y_main_np       2022 -0.126  2023 -0.940  2024 -1.457
+   year effects full  y_main_npsym    2022 -0.031  2023 -0.662  2024 -1.143
+   year effects full  y_main_max      2022 -0.823  2023 -1.125  2024 -1.029
+   year effects full  y_main_rrbound  2022 -0.474  2023 -0.411  2024 -0.918
+3) Sample variants:
+   main  y_main  excl 2024                      +0.958  SE  0.754  p 0.2727  N 40
+   main  y_main  incl 2021 (2015-2024)          +0.387  SE  0.696  p 0.6078  N 50
+   main  y_main  LOO SWE                        +0.411  SE  0.845  p 0.6599  N 36
+   main  y_main  LOO DNK                        +0.182  SE  0.580  p 0.7738  N 36
+   main  y_main  LOO FIN                        +0.872  SE  0.800  p 0.3554  N 36
+   main  y_main  LOO ISL                        +0.980  SE  0.671  p 0.2406  N 36
+   main  y_main  from 2010 (= full)             -0.282  SE  0.765  p 0.7313  N 75
+   main  y_main  from 2010 excl 2021            -0.226  SE  0.729  p 0.7716  N 70
+   main  y_main  no ISL indicator               +1.157  SE  0.509  p 0.0854  N 45
+   main  y_main  noind (2010-2024, no indicators)   +0.069  SE  0.606  p 0.9149  N 75
+   full  y_main  excl 2024                      +0.071  SE  0.859  p 0.9382  N 70
+   full  y_main  LOO SWE                        -0.468  SE  1.074  p 0.6926  N 60
+   full  y_main  LOO DNK                        -0.816  SE  0.706  p 0.3316  N 60
+   full  y_main  LOO FIN                        -0.112  SE  1.060  p 0.9222  N 60
+   full  y_main  LOO ISL                        +0.253  SE  0.665  p 0.7289  N 60
+   main  y_h2    excl 2024                      +0.784  SE  0.335  p 0.0795  N 40
+   main  y_h2    incl 2021 (2015-2024)          +0.650  SE  0.370  p 0.1533  N 50
+   main  y_h2    LOO SWE                        +0.496  SE  0.231  p 0.1215  N 36
+   main  y_h2    LOO DNK                        +0.959  SE  0.536  p 0.1717  N 36
+   main  y_h2    LOO FIN                        +1.051  SE  0.453  p 0.1031  N 36
+   main  y_h2    LOO ISL                        +0.791  SE  0.539  p 0.2388  N 36
+   main  y_h2    from 2010 (= full)             +0.311  SE  0.338  p 0.4095  N 75
+   main  y_h2    from 2010 excl 2021            +0.374  SE  0.352  p 0.3486  N 70
+   main  y_h2    no ISL indicator               +0.789  SE  0.379  p 0.1054  N 45
+   main  y_h2    noind (2010-2024, no indicators)   +0.339  SE  0.316  p 0.3437  N 75
+   full  y_h2    excl 2024                      +0.267  SE  0.275  p 0.3868  N 70
+   full  y_h2    LOO SWE                        +0.006  SE  0.073  p 0.9385  N 60
+   full  y_h2    LOO DNK                        +0.434  SE  0.440  p 0.3962  N 60
+   full  y_h2    LOO FIN                        +0.437  SE  0.448  p 0.4020  N 60
+   full  y_h2    LOO ISL                        +0.359  SE  0.461  p 0.4925  N 60
+   -> main y_main stable: yes (max |dev.| 0.89 pp, min p 0.085)
+   -> main y_h2 stable: yes (max |dev.| 0.51 pp, min p 0.079)
+   -> full y_main stable: yes (max |dev.| 0.54 pp, min p 0.332)
+   -> full y_h2 stable: yes (max |dev.| 0.30 pp, min p 0.387)
+4) Break-even bias (West, main; studentised | raw) and extended inversion:
+   y_main delta 0.70: break-even +0.433 | -0.498  (rejected at 10 %: TRUE | FALSE)
+   y_h2   delta 0.70: break-even +0.712 | +0.057  (rejected at 10 %: TRUE | TRUE)
+   y_pit  delta 0.27: break-even +0.045 | -0.577  (rejected at 10 %: TRUE | FALSE)
+   west        y_main_rrbound    y_main_rrbound student  N 10 coef -0.142 rank 10/11 CS90 [-0.59, +0.31] p(loss>=0.70) 0.091 break-even +0.114
+   west        y_main_rrbound    y_main_rrbound raw      N 10 coef -0.142 rank 10/11 CS90 [-2.08, +1.79] p(loss>=0.70) 0.455 break-even -0.817
+   west        y_main_np         y_main_np     student  N 10 coef -0.382 rank 6/11 CS90 [-0.83, +0.07] p(loss>=0.70) 0.455 break-even -0.126
+   west        y_main_np         y_main_np     raw      N 10 coef -0.382 rank 10/11 CS90 [-2.32, +1.55] p(loss>=0.70) 0.545 break-even -1.057
+   west        y_main_npsym      y_main_npsym  student  N 10 coef -0.153 rank 9/11 CS90 [-0.61, +0.30] p(loss>=0.70) 0.091 break-even +0.103
+   west        y_main_npsym      y_main_npsym  raw      N 10 coef -0.153 rank 10/11 CS90 [-2.09, +1.78] p(loss>=0.70) 0.455 break-even -0.828
+   west        y_h2_relief       y_h2_relief   student  N 10 coef +0.662 rank 1/11 CS90 [+0.13, +1.19] p(loss>=0.70) 0.091 break-even +0.941
+   west        y_h2_relief       y_h2_relief   raw      N 10 coef +0.662 rank 3/11 CS90 [-0.81, +2.13] p(loss>=0.70) 0.091 break-even +0.286
+   west_exSWE  without Sweden    y_main        student  N 9 coef +0.062 rank 9/10 CS90 [-8.00, +8.00] p(loss>=0.70) 0.100 break-even NA
+   west_exSWE  without Sweden    y_main        raw      N 9 coef +0.062 rank 9/10 CS90 [-8.00, +8.00] p(loss>=0.70) 0.400 break-even NA
+   west_exSWE  without Sweden    y_h2          student  N 9 coef +0.283 rank 2/10 CS90 [-8.00, +8.00] p(loss>=0.70) 0.100 break-even NA
+   west_exSWE  without Sweden    y_h2          raw      N 9 coef +0.283 rank 3/10 CS90 [-8.00, +8.00] p(loss>=0.70) 0.100 break-even NA
+   west_exSWE  without Sweden    y_pit         student  N 9 coef +0.078 rank 8/10 CS90 [-8.00, +8.00] p(loss>=0.27) 0.200 break-even NA
+   west_exSWE  without Sweden    y_pit         raw      N 9 coef +0.078 rank 9/10 CS90 [-8.00, +8.00] p(loss>=0.27) 0.300 break-even NA
+   west_exFRA  without France    y_main        student  N 9 coef +0.117 rank 9/10 CS90 [-8.00, +8.00] p(loss>=0.70) 0.100 break-even NA
+   west_exFRA  without France    y_main        raw      N 9 coef +0.117 rank 9/10 CS90 [-8.00, +8.00] p(loss>=0.70) 0.400 break-even NA
+   west_exFRA  without France    y_h2          student  N 9 coef +0.477 rank 2/10 CS90 [-8.00, +8.00] p(loss>=0.70) 0.100 break-even NA
+   west_exFRA  without France    y_h2          raw      N 9 coef +0.477 rank 3/10 CS90 [-8.00, +8.00] p(loss>=0.70) 0.100 break-even NA
+   west_exFRA  without France    y_pit         student  N 9 coef +0.280 rank 3/10 CS90 [-8.00, +8.00] p(loss>=0.27) 0.100 break-even NA
+   west_exFRA  without France    y_pit         raw      N 9 coef +0.280 rank 5/10 CS90 [-8.00, +8.00] p(loss>=0.27) 0.200 break-even NA
+   west_ex1300 controls ex 1300  y_main_ex1300 student  N 10 coef +0.116 rank 10/11 CS90 [-0.41, +0.64] p(loss>=0.70) 0.091 break-even +0.422
+   west_ex1300 controls ex 1300  y_main_ex1300 raw      N 10 coef +0.116 rank 11/11 CS90 [-1.19, +1.42] p(loss>=0.70) 0.273 break-even -0.491
+   ex-1300 West placebos (raw series -> cleaned series; unit: coef | t_student): AUT +0.99->+0.85 | +1.62->+1.39; BEL -0.75->-0.82 | -0.85->-0.96; CHE +0.13->+0.46 | +0.29->+0.80; DEU +0.67->+0.60 | +1.25->+1.07; DNK -1.94->-1.08 | -1.66->-1.47; FIN +0.39->+0.32 | +0.54->+0.45; FRA -0.61->-0.68 | -1.66->-2.00; ISL +0.93->+0.26 | +1.22->+0.32; NLD +1.38->+1.31 | +1.60->+1.50; SWE -1.13->-1.20 | -1.58->-1.69
+   scale sensitivity (West main y_main): s_NOR 0.2748, chi-square 90% interval 0.185 to 0.574, break-even s 0.542; cs90_lo at the interval ends -0.13 / -0.78; smallest loss rejected at the interval ends +0.12 / +0.75
+   scale sensitivity (West main y_h2): s_NOR 0.2225, chi-square 90% interval 0.150 to 0.465, break-even s 0.599; cs90_lo at the interval ends +0.07 / -0.69; smallest loss rejected at the interval ends -0.15 / +0.45
+5) Start-year sensitivity (coef; Nordic | West):
+   y_main 2010  Nordic -0.226 [placebos -2.08, +2.11]  West -0.650 [placebos -2.17, +2.00]
+   y_main 2011  Nordic +0.039 [placebos -1.99, +1.90]  West -0.392 [placebos -2.11, +2.01]
+   y_main 2012  Nordic +0.306 [placebos -1.94, +1.74]  West -0.135 [placebos -2.07, +1.93]
+   y_main 2013  Nordic +0.525 [placebos -1.83, +1.56]  West +0.070 [placebos -1.99, +1.77]
+   y_main 2014  Nordic +0.646 [placebos -1.75, +1.33]  West +0.175 [placebos -1.94, +1.56]
+   y_main 2015  Nordic +0.613 [placebos -1.75, +1.56]  West +0.177 [placebos -1.94, +1.38]
+   y_main 2016  Nordic +0.690 [placebos -1.60, +1.32]  West +0.247 [placebos -1.82, +1.24]
+   y_main 2017  Nordic +0.652 [placebos -1.87, +1.48]  West +0.353 [placebos -1.89, +1.16]
+   y_h2   2010  Nordic +0.374 [placebos -1.24, +0.52]  West +0.080 [placebos -1.36, +1.25]
+   y_h2   2011  Nordic +0.477 [placebos -1.16, +0.57]  West +0.152 [placebos -1.33, +1.33]
+   y_h2   2012  Nordic +0.604 [placebos -1.15, +0.63]  West +0.249 [placebos -1.35, +1.38]
+   y_h2   2013  Nordic +0.738 [placebos -1.12, +0.72]  West +0.347 [placebos -1.37, +1.34]
+   y_h2   2014  Nordic +0.803 [placebos -1.19, +0.75]  West +0.414 [placebos -1.41, +1.22]
+   y_h2   2015  Nordic +0.824 [placebos -1.25, +0.91]  West +0.433 [placebos -1.48, +1.08]
+   y_h2   2016  Nordic +0.931 [placebos -1.28, +1.10]  West +0.513 [placebos -1.53, +0.98]
+   y_h2   2017  Nordic +0.923 [placebos -1.17, +1.21]  West +0.582 [placebos -1.36, +0.73]
+Files: tab_ladder, tab_variants, tab_variants_adjusted, tab_inference_ext, tab_startyear, fig_startyear
+
+========================================================================
+Section 8: Treatment from 2021, realised vs. ex ante, naive 2x2 -- 2026-11-13 10:46:30
+========================================================================
+CHECK 8.1 [PASS] naive 2x2 with country means: controls -1.00, DiD +0.57 | controls -1.000, DiD 0.567; full: controls -0.934, DiD 0.069
+CHECK 8.2 [PASS] asymmetric bias of Section 7 = mean excess of the realised wealth tax increase over the ex-ante estimate (pp, Panel B) | excess by year 2022 +0.043, 2023 +0.030, 2024 +0.041; mean 0.0378
+Treatment from 2021:
+   2015-2024 (2021 treated)   y_main +0.825 (0.386) rank 3/5 p_loss 0.80 | DNK -0.86, FIN 0.95, ISL 0.73, SWE -0.76
+   2015-2024 (2021 treated)   y_h2   +0.920 (0.347) rank 2/5 p_loss 1.00 | DNK 0.47, FIN 0.75, ISL -0.12, SWE -1.10
+   2015-2024 (2021 treated)   y_pit  +0.761 (0.347) rank 2/5 p_loss 1.00 | DNK 0.46, FIN 0.75, ISL -0.11, SWE -1.10
+   2010-2024 (2021 treated)   y_main -0.004 (0.459) rank 5/5 p_loss 0.60 | DNK -1.18, FIN 0.66, ISL 1.29, SWE -0.76
+   2010-2024 (2021 treated)   y_h2   +0.470 (0.308) rank 3/5 p_loss 0.80 | DNK 0.51, FIN 0.36, ISL 0.23, SWE -1.08
+   2010-2024 (2021 treated)   y_pit  +0.281 (0.327) rank 5/5 p_loss 0.40 | DNK 0.45, FIN 0.29, ISL 0.44, SWE -1.16
+Naive 2x2: main controls -1.000 DiD +0.567 | full controls -0.934 DiD +0.069
+Wealth tax realised vs ex ante:
+   2022: NOK 26.3 bn (+7.9 vs 2021) = 0.681% ML GDP (+0.147 pp) | mech 4.0 bn = 0.105 pp | ratio NOK 1.95, pp 1.41 | ML GDP +11.8% vs 2021
+   2023: NOK 29.4 bn (+10.9 vs 2021) = 0.731% ML GDP (+0.197 pp) | mech 6.5 bn = 0.168 pp | ratio NOK 1.69, pp 1.18 | ML GDP +16.3% vs 2021
+   2024: NOK 31.1 bn (+12.6 vs 2021) = 0.742% ML GDP (+0.208 pp) | mech 6.5 bn = 0.168 pp | ratio NOK 1.95, pp 1.24 | ML GDP +21.2% vs 2021
+Files: tab_treat2021, tab_wealth_realized, tab_naive
+
+========================================================================
+Section 9: Calibration (Table A1.12) -- 2026-11-13 10:46:31
+========================================================================
+CHECK 9.1 [PASS] Delta1 = mean net wealth tax revenue 2022-2024 in % of mainland GDP (rounded to 0.1) | 0.718 %, NOK 26.3 to 31.1 bn
+CHECK 9.2 [PASS] Delta2 = gross mechanical PIT increase in % of 2024 mainland GDP (rounded to 0.01) | NOK 11.18 bn = 0.2667 %
+CHECK 9.3 [PASS] MDES_b (main, y_main) = 1.75, the loss threshold of Section 4 | 1.7531
+CHECK 9.4 [PASS] ladder margin 0.34 (Table A1.14) = mechanical yield of the package, average 2022-2024 (rounded to 0.01) | package average 0.3363, fully implemented 0.4212
+CHECK 9.5 [PASS] Table A1.12: wealth tax and PIT measures in % of 2024 mainland GDP add up to the fully implemented package | 0.1545 + 0.2667 = 0.4212
+Mainland GDP NOK bn: 2022 3864.9, 2023 4021.6, 2024 4191.8; 1 pp (2022) = NOK 38.65 bn
+08815 2022: taxable net wealth NOK 3223.4 bn, wealth tax NOK 26.32 bn
+Mechanical: wealth tax measures NOK 6.475 bn (0.1545 % of 2024 GDP, 0.1675 % of 2022 GDP as in Table A1.11), PIT gross NOK 11.18 bn (0.2667 % of 2024 GDP)
+Package by year (% of the year's mainland GDP): 2022 0.188, 2023 0.399, 2024 0.421; average 0.336, fully implemented 0.421
+Net-of-tax return: shares 4.53 -> 4.12 % (-9.1 %), other assets 4.15 -> 3.90 % (-6.0 %)
+Net-of-tax rate 1 - tau: shares -0.414 %, other assets -0.252 %
+Base change (net-of-tax return, Jakobsen) -1.20 to -3.64 %; (net-of-tax rate, Seim) -0.023 to -0.112 %
+Losses NOK bn: base (return) 0.317-0.958, base (rate) 0.0060-0.0295, migration 1.554, envelope 2.829, calibrated 1.560-2.512 (with envelope 4.383)
+   Wealth tax measures                            6.5              0.15
+   PIT measures, gross                            11.2             0.27
+   Package                                                         0.3-0.4
+   Wealth tax base, elasticities with respect to the net-of-tax return 0.3-1.0          0.01-0.02
+   Wealth tax base, elasticities with respect to the net-of-tax rate 0.01-0.03        0.00-0.00
+   Migration, Swedish semi-elasticities           1.6              0.04
+   Upper envelope: subnational base response      2.8              0.07
+   Taxes paid by the emigrants                    0.3-1.1          0.01-0.03
+   Calibrated total                               1.6-2.5 (4.4)    0.04-0.06 (0.11)
+   Delta1 (H1 and H2): revenue of the net wealth tax 26-31            0.7
+   Delta2 (PIT check): gross mechanical PIT increase 11.2             0.27
+   Nordic detection threshold (MDES_b)            68               1.75
+   Two-sided 90 percent set, lower end, unscaled  68               1.8
+   Two-sided 90 percent set, lower end, studentised 11               0.3
+   Smallest loss rejected, one-sided, studentised 10               0.27
+Files: tab_calibration
+
+========================================================================
+Section 10: Mapping of robustness checks to assumptions (Table A1.2) -- 2026-11-13 10:46:31
+========================================================================
+Files: tab_assumption_map (Table A1.2)
+
+========================================================================
+End -- 2026-11-13 10:46:31
+========================================================================
+Checks: 46, of which FAIL: 0
+sessionInfo():
+R version 4.4.2 (2024-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 26300)
+
+Matrix products: default
+
+
+locale:
+[1] LC_COLLATE=German_Switzerland.utf8  LC_CTYPE=German_Switzerland.utf8    LC_MONETARY=German_Switzerland.utf8 LC_NUMERIC=C                        LC_TIME=German_Switzerland.utf8    
+
+time zone: Europe/Zurich
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] synthdid_0.0.9          didimputation_0.5.1     data.table_1.17.8       fwildclusterboot_0.14.3 fixest_0.14.0           ggplot2_3.5.1           stringr_1.5.1           tidyr_1.3.1            
+ [9] dplyr_1.1.4             readr_2.1.5            
+
+loaded via a namespace (and not attached):
+ [1] dqrng_0.4.1          sandwich_3.1-1       generics_0.1.3       gtools_3.9.5         dreamerr_1.4.0       stringi_1.8.4        lattice_0.22-6       hms_1.1.3            magrittr_2.0.3      
+[10] grid_4.4.2           mvtnorm_1.3-7        Matrix_1.7-1         Formula_1.2-5        purrr_1.0.2          scales_1.3.0         stringmagic_1.2.0    textshaping_0.4.1    numDeriv_2016.8-1.1 
+[19] cli_3.6.3            crayon_1.5.3         rlang_1.1.4          bit64_4.5.2          munsell_0.5.1        withr_3.0.2          tools_4.4.2          parallel_4.4.2       tzdb_0.4.0          
+[28] JuliaConnectoR_1.1.5 colorspace_2.1-1     vctrs_0.6.5          R6_2.5.1             zoo_1.8-13           lifecycle_1.0.4      bit_4.5.0.1          vroom_1.6.5          MASS_7.3-61         
+[37] ragg_1.3.3           pkgconfig_2.0.3      pillar_1.10.0        gtable_0.3.6         glue_1.8.0           Rcpp_1.1.1           systemfonts_1.3.2    summclust_0.7.0      collapse_2.1.6      
+[46] tibble_3.2.1         tidyselect_1.2.1     rstudioapi_0.17.1    farver_2.1.2         nlme_3.1-166         labeling_0.4.3       compiler_4.4.2      

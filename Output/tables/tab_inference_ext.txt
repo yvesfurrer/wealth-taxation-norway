@@ -1,0 +1,26 @@
+tab_inference_ext -- Table A1.8 Panel B: placebo inversion for the corrected outcomes (West, main), the West pool without Sweden, the West pool without France and the West pool with the ex-1300 control series
+Break-even = upward bias of Norway's estimate at which the rejection of a loss >= delta (10 %) is lost (positive = rejected).
+
+pool        variant           outcome       method    N     coef    s_NOR    rank   delta  cs90_lo  cs90_hi  cs80_lo  cs80_hi p_loss breakeven
+west        y_main_rrbound    y_main_rrbound student  10   -0.142    0.275      10    0.70    -0.59    +0.31    -0.59    +0.31  0.091    +0.114
+west        y_main_rrbound    y_main_rrbound raw      10   -0.142    0.275      10    0.70    -2.08    +1.79    -1.51    +1.23  0.455    -0.817
+west        y_main_np         y_main_np     student  10   -0.382    0.275       6    0.70    -0.83    +0.07    -0.83    +0.07  0.455    -0.126
+west        y_main_np         y_main_np     raw      10   -0.382    0.275      10    0.70    -2.32    +1.55    -1.75    +0.99  0.545    -1.057
+west        y_main_npsym      y_main_npsym  student  10   -0.153    0.275       9    0.70    -0.61    +0.30    -0.60    +0.30  0.091    +0.103
+west        y_main_npsym      y_main_npsym  raw      10   -0.153    0.275      10    0.70    -2.09    +1.78    -1.52    +1.22  0.455    -0.828
+west        y_h2_relief       y_h2_relief   student  10   +0.662    0.223       1    0.70    +0.13    +1.19    +0.25    +1.08  0.091    +0.941
+west        y_h2_relief       y_h2_relief   raw      10   +0.662    0.223       3    0.70    -0.81    +2.13    -0.41    +1.73  0.091    +0.286
+west_exSWE  without Sweden    y_main        student   9   +0.062    0.275       9    0.70    -8.00    +8.00    -0.45    +0.58  0.100        NA
+west_exSWE  without Sweden    y_main        raw       9   +0.062    0.275       9    0.70    -8.00    +8.00    -2.03    +2.15  0.400        NA
+west_exSWE  without Sweden    y_h2          student   9   +0.283    0.234       2    0.70    -8.00    +8.00    -0.11    +0.68  0.100        NA
+west_exSWE  without Sweden    y_h2          raw       9   +0.283    0.234       3    0.70    -8.00    +8.00    -0.63    +1.20  0.100        NA
+west_exSWE  without Sweden    y_pit         student   9   +0.078    0.252       8    0.27    -8.00    +8.00    -0.42    +0.57  0.200        NA
+west_exSWE  without Sweden    y_pit         raw       9   +0.078    0.252       9    0.27    -8.00    +8.00    -0.84    +0.99  0.300        NA
+west_exFRA  without France    y_main        student   9   +0.117    0.258       9    0.70    -8.00    +8.00    -0.34    +0.57  0.100        NA
+west_exFRA  without France    y_main        raw       9   +0.117    0.258       9    0.70    -8.00    +8.00    -1.91    +2.14  0.400        NA
+west_exFRA  without France    y_h2          student   9   +0.477    0.201       2    0.70    -8.00    +8.00    +0.00    +0.96  0.100        NA
+west_exFRA  without France    y_h2          raw       9   +0.477    0.201       3    0.70    -8.00    +8.00    -0.96    +1.92  0.100        NA
+west_exFRA  without France    y_pit         student   9   +0.280    0.214       3    0.27    -8.00    +8.00    -0.23    +0.79  0.100        NA
+west_exFRA  without France    y_pit         raw       9   +0.280    0.214       5    0.27    -8.00    +8.00    -1.15    +1.71  0.200        NA
+west_ex1300 controls ex 1300  y_main_ex1300 student  10   +0.116    0.263      10    0.70    -0.41    +0.64    -0.32    +0.56  0.091    +0.422
+west_ex1300 controls ex 1300  y_main_ex1300 raw      10   +0.116    0.263      11    0.70    -1.19    +1.42    -1.08    +1.31  0.273    -0.491

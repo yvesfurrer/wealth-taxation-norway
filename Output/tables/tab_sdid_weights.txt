@@ -1,0 +1,22 @@
+tab_sdid_weights -- unit (omega) and time (lambda) weights per estimation (top 10, > 1e-4)
+
+y_main | nordic | full | sdid | unit: SWE 0.3131, DNK 0.2965, FIN 0.2864, ISL 0.1040
+y_main | nordic | full | sdid | time: 2013 0.5678, 2018 0.2772, 2016 0.1550
+y_main | nordic | full | sc | unit: SWE 0.5646, FIN 0.3564, ISL 0.0790
+y_main | nordic | full | sc | time: (all < 0.0001)
+y_main | nordic | full | did | unit: DNK 0.2500, FIN 0.2500, ISL 0.2500, SWE 0.2500
+y_main | nordic | full | did | time: 2010 0.0833, 2011 0.0833, 2012 0.0833, 2013 0.0833, 2014 0.0833, 2015 0.0833, 2016 0.0833, 2017 0.0833, 2018 0.0833, 2019 0.0833
+y_main | nordic | ex2021 | sdid | unit: SWE 0.3139, DNK 0.2936, FIN 0.2850, ISL 0.1075
+y_main | nordic | ex2021 | sdid | time: 2013 0.5678, 2018 0.2772, 2016 0.1550
+y_main | nordic | main | sdid | unit: DNK 0.2874, SWE 0.2762, FIN 0.2745, ISL 0.1619
+y_main | nordic | main | sdid | time: 2015 0.5122, 2018 0.3561, 2016 0.1317
+y_h2 | nordic | full | sdid | unit: FIN 0.4406, SWE 0.2697, ISL 0.1649, DNK 0.1248
+y_h2 | nordic | full | sdid | time: 2012 0.3770, 2014 0.3536, 2020 0.2694
+y_h2 | nordic | full | sc | unit: FIN 0.9331, ISL 0.0669
+y_h2 | nordic | full | sc | time: (all < 0.0001)
+y_h2 | nordic | full | did | unit: DNK 0.2500, FIN 0.2500, ISL 0.2500, SWE 0.2500
+y_h2 | nordic | full | did | time: 2010 0.0833, 2011 0.0833, 2012 0.0833, 2013 0.0833, 2014 0.0833, 2015 0.0833, 2016 0.0833, 2017 0.0833, 2018 0.0833, 2019 0.0833
+y_h2 | nordic | ex2021 | sdid | unit: FIN 0.4595, SWE 0.3000, ISL 0.1376, DNK 0.1030
+y_h2 | nordic | ex2021 | sdid | time: 2012 0.3770, 2014 0.3536, 2020 0.2694
+y_h2 | nordic | main | sdid | unit: FIN 0.3164, DNK 0.3140, SWE 0.2302, ISL 0.1394
+y_h2 | nordic | main | sdid | time: 2015 0.5014, 2020 0.4986

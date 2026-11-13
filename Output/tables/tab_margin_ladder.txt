@@ -1,0 +1,77 @@
+tab_margin_ladder -- Table A1.14 and Figure 4.2: one-sided non-inferiority test at five margins, West pool, main sample
+stat = (b + margin)/s_NOR against the signed placebo statistics; p = (1 + #{t_g >= stat})/(N + 1); break-even = b + margin - max(t_g) s_NOR;
+delta_min = max(t_g) s_NOR - b = smallest margin rejected at the 10 percent level (negative: every loss down to zero and beyond rejected);
+multiple = (margin + 0.34)/0.34 = behavioural loss the margin implies, in mechanical yields of the package.
+Series: h1 = H1 main analysis; h1_rrbound = H1, A112 excess subtracted; h1_np = H1, non-package measures subtracted; h1_npsym = H1, non-package measures net of the PIT reliefs subtracted; h2 = H2 main analysis; h2_bias = H2, net of the asymmetric bias; h2_relief = H2, PIT reliefs added back, net of the asymmetric bias. Asymmetric bias 0.0378 pp (Section 8, Panel B).
+
+series     method   margin multiple     stat      p  breakeven   rej_10  delta_min  label
+h1         student    0.70      3.1    3.192  0.091      0.433     TRUE      0.267  Loss of the whole post-reform wealth tax (Delta1)
+h1         student    0.50      2.5    2.464  0.091      0.233     TRUE      0.267  The wealth tax costs what it raised before the reform (2021)
+h1         student    0.34      2.0    1.882  0.091      0.073     TRUE      0.267  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h1         student    0.13      1.4    1.118  0.455     -0.137    FALSE      0.267  The one circulated net-loss figure (NOK 5.0 bn a year)
+h1         student    0.00      1.0    0.645  0.455     -0.267    FALSE      0.267  Strict Laffer margin: behavioural loss equals mechanical gain
+h1         raw        0.70      3.1    0.877  0.364     -0.498    FALSE      1.198  Loss of the whole post-reform wealth tax (Delta1)
+h1         raw        0.50      2.5    0.677  0.364     -0.698    FALSE      1.198  The wealth tax costs what it raised before the reform (2021)
+h1         raw        0.34      2.0    0.517  0.455     -0.858    FALSE      1.198  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h1         raw        0.13      1.4    0.307  0.545     -1.068    FALSE      1.198  The one circulated net-loss figure (NOK 5.0 bn a year)
+h1         raw        0.00      1.0    0.177  0.545     -1.198    FALSE      1.198  Strict Laffer margin: behavioural loss equals mechanical gain
+h1_rrbound student    0.70      3.1    2.030  0.091      0.114     TRUE      0.586  Loss of the whole post-reform wealth tax (Delta1)
+h1_rrbound student    0.50      2.5    1.303  0.273     -0.086    FALSE      0.586  The wealth tax costs what it raised before the reform (2021)
+h1_rrbound student    0.34      2.0    0.720  0.455     -0.246    FALSE      0.586  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h1_rrbound student    0.13      1.4   -0.044  0.636     -0.456    FALSE      0.586  The one circulated net-loss figure (NOK 5.0 bn a year)
+h1_rrbound student    0.00      1.0   -0.517  0.636     -0.586    FALSE      0.586  Strict Laffer margin: behavioural loss equals mechanical gain
+h1_rrbound raw        0.70      3.1    0.558  0.455     -0.817    FALSE      1.517  Loss of the whole post-reform wealth tax (Delta1)
+h1_rrbound raw        0.50      2.5    0.358  0.545     -1.017    FALSE      1.517  The wealth tax costs what it raised before the reform (2021)
+h1_rrbound raw        0.34      2.0    0.198  0.545     -1.177    FALSE      1.517  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h1_rrbound raw        0.13      1.4   -0.012  0.636     -1.387    FALSE      1.517  The one circulated net-loss figure (NOK 5.0 bn a year)
+h1_rrbound raw        0.00      1.0   -0.142  0.636     -1.517    FALSE      1.517  Strict Laffer margin: behavioural loss equals mechanical gain
+h1_np      student    0.70      3.1    1.157  0.455     -0.126    FALSE      0.826  Loss of the whole post-reform wealth tax (Delta1)
+h1_np      student    0.50      2.5    0.430  0.545     -0.326    FALSE      0.826  The wealth tax costs what it raised before the reform (2021)
+h1_np      student    0.34      2.0   -0.153  0.636     -0.486    FALSE      0.826  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h1_np      student    0.13      1.4   -0.917  0.727     -0.696    FALSE      0.826  The one circulated net-loss figure (NOK 5.0 bn a year)
+h1_np      student    0.00      1.0   -1.390  0.727     -0.826    FALSE      0.826  Strict Laffer margin: behavioural loss equals mechanical gain
+h1_np      raw        0.70      3.1    0.318  0.545     -1.057    FALSE      1.757  Loss of the whole post-reform wealth tax (Delta1)
+h1_np      raw        0.50      2.5    0.118  0.636     -1.257    FALSE      1.757  The wealth tax costs what it raised before the reform (2021)
+h1_np      raw        0.34      2.0   -0.042  0.636     -1.417    FALSE      1.757  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h1_np      raw        0.13      1.4   -0.252  0.636     -1.627    FALSE      1.757  The one circulated net-loss figure (NOK 5.0 bn a year)
+h1_np      raw        0.00      1.0   -0.382  0.636     -1.757    FALSE      1.757  Strict Laffer margin: behavioural loss equals mechanical gain
+h1_npsym   student    0.70      3.1    1.990  0.091      0.103     TRUE      0.597  Loss of the whole post-reform wealth tax (Delta1)
+h1_npsym   student    0.50      2.5    1.263  0.273     -0.097    FALSE      0.597  The wealth tax costs what it raised before the reform (2021)
+h1_npsym   student    0.34      2.0    0.680  0.455     -0.257    FALSE      0.597  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h1_npsym   student    0.13      1.4   -0.084  0.636     -0.467    FALSE      0.597  The one circulated net-loss figure (NOK 5.0 bn a year)
+h1_npsym   student    0.00      1.0   -0.557  0.636     -0.597    FALSE      0.597  Strict Laffer margin: behavioural loss equals mechanical gain
+h1_npsym   raw        0.70      3.1    0.547  0.455     -0.828    FALSE      1.528  Loss of the whole post-reform wealth tax (Delta1)
+h1_npsym   raw        0.50      2.5    0.347  0.545     -1.028    FALSE      1.528  The wealth tax costs what it raised before the reform (2021)
+h1_npsym   raw        0.34      2.0    0.187  0.545     -1.188    FALSE      1.528  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h1_npsym   raw        0.13      1.4   -0.023  0.636     -1.398    FALSE      1.528  The one circulated net-loss figure (NOK 5.0 bn a year)
+h1_npsym   raw        0.00      1.0   -0.153  0.636     -1.528    FALSE      1.528  Strict Laffer margin: behavioural loss equals mechanical gain
+h2         student    0.70      3.1    5.090  0.091      0.712     TRUE     -0.012  Loss of the whole post-reform wealth tax (Delta1)
+h2         student    0.50      2.5    4.192  0.091      0.512     TRUE     -0.012  The wealth tax costs what it raised before the reform (2021)
+h2         student    0.34      2.0    3.473  0.091      0.352     TRUE     -0.012  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h2         student    0.13      1.4    2.529  0.091      0.142     TRUE     -0.012  The one circulated net-loss figure (NOK 5.0 bn a year)
+h2         student    0.00      1.0    1.945  0.091      0.012     TRUE     -0.012  Strict Laffer margin: behavioural loss equals mechanical gain
+h2         raw        0.70      3.1    1.133  0.091      0.057     TRUE      0.643  Loss of the whole post-reform wealth tax (Delta1)
+h2         raw        0.50      2.5    0.933  0.182     -0.143    FALSE      0.643  The wealth tax costs what it raised before the reform (2021)
+h2         raw        0.34      2.0    0.773  0.182     -0.303    FALSE      0.643  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h2         raw        0.13      1.4    0.563  0.182     -0.513    FALSE      0.643  The one circulated net-loss figure (NOK 5.0 bn a year)
+h2         raw        0.00      1.0    0.433  0.273     -0.643    FALSE      0.643  Strict Laffer margin: behavioural loss equals mechanical gain
+h2_bias    student    0.70      3.1    4.920  0.091      0.674     TRUE      0.026  Loss of the whole post-reform wealth tax (Delta1)
+h2_bias    student    0.50      2.5    4.022  0.091      0.474     TRUE      0.026  The wealth tax costs what it raised before the reform (2021)
+h2_bias    student    0.34      2.0    3.303  0.091      0.314     TRUE      0.026  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h2_bias    student    0.13      1.4    2.359  0.091      0.104     TRUE      0.026  The one circulated net-loss figure (NOK 5.0 bn a year)
+h2_bias    student    0.00      1.0    1.775  0.182     -0.026    FALSE      0.026  Strict Laffer margin: behavioural loss equals mechanical gain
+h2_bias    raw        0.70      3.1    1.095  0.091      0.019     TRUE      0.681  Loss of the whole post-reform wealth tax (Delta1)
+h2_bias    raw        0.50      2.5    0.895  0.182     -0.181    FALSE      0.681  The wealth tax costs what it raised before the reform (2021)
+h2_bias    raw        0.34      2.0    0.735  0.182     -0.341    FALSE      0.681  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h2_bias    raw        0.13      1.4    0.525  0.182     -0.551    FALSE      0.681  The one circulated net-loss figure (NOK 5.0 bn a year)
+h2_bias    raw        0.00      1.0    0.395  0.273     -0.681    FALSE      0.681  Strict Laffer margin: behavioural loss equals mechanical gain
+h2_relief  student    0.70      3.1    5.949  0.091      0.903     TRUE     -0.203  Loss of the whole post-reform wealth tax (Delta1)
+h2_relief  student    0.50      2.5    5.050  0.091      0.703     TRUE     -0.203  The wealth tax costs what it raised before the reform (2021)
+h2_relief  student    0.34      2.0    4.331  0.091      0.543     TRUE     -0.203  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h2_relief  student    0.13      1.4    3.388  0.091      0.333     TRUE     -0.203  The one circulated net-loss figure (NOK 5.0 bn a year)
+h2_relief  student    0.00      1.0    2.803  0.091      0.203     TRUE     -0.203  Strict Laffer margin: behavioural loss equals mechanical gain
+h2_relief  raw        0.70      3.1    1.324  0.091      0.248     TRUE      0.452  Loss of the whole post-reform wealth tax (Delta1)
+h2_relief  raw        0.50      2.5    1.124  0.091      0.048     TRUE      0.452  The wealth tax costs what it raised before the reform (2021)
+h2_relief  raw        0.34      2.0    0.964  0.182     -0.112    FALSE      0.452  The reform cost what it was meant to raise (mechanical yield, average 2022-2024)
+h2_relief  raw        0.13      1.4    0.754  0.182     -0.322    FALSE      0.452  The one circulated net-loss figure (NOK 5.0 bn a year)
+h2_relief  raw        0.00      1.0    0.624  0.182     -0.452    FALSE      0.452  Strict Laffer margin: behavioural loss equals mechanical gain

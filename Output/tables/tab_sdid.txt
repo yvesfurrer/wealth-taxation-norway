@@ -1,0 +1,16 @@
+tab_sdid -- synthetic DiD (synthdid), synthetic control and DiD estimates, Nordic pool
+Treated: NOR from 2022. Variants: full = 2010-2024 (T0=12; sdid, sc, did); ex2021 = 2010-2024 without 2021 (T0=11; sdid);
+  main = 2015-2024 without 2021 (T0=6; sdid). SE: placebo method (200 reps, seed 1892); 95% CI normal.
+Pool: nordic = DNK, FIN, ISL, SWE (4 donors; placebo SE unreliable). Western European pool: tab_sdid_west.
+
+outcome pool       variant estim  estimate       se     ci_lo     ci_hi  N0  T0  flag
+y_main  nordic     full    sdid      0.584    3.635    -6.541     7.709   4  12  few donors, placebo SE unreliable
+y_main  nordic     full    sc       -0.690    3.260    -7.080     5.701   4  12  few donors, placebo SE unreliable
+y_main  nordic     full    did       0.069    1.295    -2.470     2.608   4  12  few donors, placebo SE unreliable
+y_main  nordic     ex2021  sdid      0.583    3.794    -6.853     8.020   4  11  few donors, placebo SE unreliable
+y_main  nordic     main    sdid      0.831    4.276    -7.550     9.212   4   6  few donors, placebo SE unreliable
+y_h2    nordic     full    sdid      0.411    0.957    -1.464     2.286   4  12  few donors, placebo SE unreliable
+y_h2    nordic     full    sc       -0.075    4.836    -9.554     9.404   4  12  few donors, placebo SE unreliable
+y_h2    nordic     full    did       0.339    0.667    -0.969     1.647   4  12  few donors, placebo SE unreliable
+y_h2    nordic     ex2021  sdid      0.418    0.968    -1.479     2.315   4  11  few donors, placebo SE unreliable
+y_h2    nordic     main    sdid      0.614    1.233    -1.802     3.030   4   6  few donors, placebo SE unreliable

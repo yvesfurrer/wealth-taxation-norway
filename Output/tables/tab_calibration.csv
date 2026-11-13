@@ -1,0 +1,16 @@
+block,component,basis,nok_lo,nok_hi,pct_lo,pct_hi,nok_txt,pct_txt
+Mechanical yield,Wealth tax measures,"Ministry of Finance ex-ante estimates, 2022 and 2023 budgets",6.475,6.475,0.15446846863180777,0.15446846863180777,6.5,0.15
+Mechanical yield,"PIT measures, gross","Bracket tax and dividend tax, 2022 to 2024 budgets, net of reliefs about zero",11.18,11.18,0.26671157981522947,0.26671157981522947,11.2,0.27
+Mechanical yield,Package,"Average 2022-2024 to fully implemented (2024), percent of the year's mainland GDP",NA,NA,0.33629684636955853,0.42118004844703727,,0.3-0.4
+Behavioural loss,"Wealth tax base, elasticities with respect to the net-of-tax return","Elasticity 0.2-0.4 (Jakobsen et al., 2020), net-of-tax return -6 to -9 percent, base -1 to -4 percent",0.317108433734939,0.9581467181467187,0.008204875645102873,0.024791124536058282,0.3-1.0,0.01-0.02
+Behavioural loss,"Wealth tax base, elasticities with respect to the net-of-tax rate","Elasticity 0.09-0.27 (Seim, 2017), net-of-tax rate 1 - tau -0.25 to -0.41 percent, base -0.02 to -0.11 percent",0.005972768532526533,0.02945158616532319,1.5453963960897427e-4,7.620314577930582e-4,0.01-0.03,0.00-0.00
+Behavioural loss,"Migration, Swedish semi-elasticities","0.24 kronor lost per krona raised, income taxes of leavers included",1.5539999999999998,1.5539999999999998,0.04020825495656007,0.04020825495656007,1.6,0.04
+Behavioural loss,Upper envelope: subnational base response,"43 percent of the base per percentage point (Switzerland), not applicable across a national border",2.8293999999999984,2.8293999999999984,0.07320800294343051,0.07320800294343051,2.8,0.07
+Behavioural loss,Taxes paid by the emigrants,"Annual tax payments of the emigrants reported in the debate (Chapter 2.2, Table A1.15)",0.3,1.1,0.007762211381575304,0.028461441732442787,0.3-1.1,0.01-0.03
+Behavioural loss,Calibrated total,"Smallest to largest national estimate plus migration, envelope in brackets",1.5599727685325264,2.5121467181467185,0.040362794596169045,0.06499937949261836,1.6-2.5 (4.4),0.04-0.06 (0.11)
+Margins and bounds,Delta1 (H1 and H2): revenue of the net wealth tax,2022-2024 average,26.32,31.1,0.7180184551751522,0.7180184551751522,26-31,0.7
+Margins and bounds,Delta2 (PIT check): gross mechanical PIT increase,As above,11.18,11.18,0.26671157981522947,0.26671157981522947,11.2,0.27
+Margins and bounds,Nordic detection threshold (MDES_b),Largest absolute Nordic placebo (Table A1.6),67.75683937680557,67.75683937680557,1.7531430326340331,1.7531430326340331,68,1.75
+Margins and bounds,"Two-sided 90 percent set, lower end, unscaled","Western European pool, main sample (Table 4.1)",68.02185279999999,68.02185279999999,1.7599999999999998,1.7599999999999998,68,1.8
+Margins and bounds,"Two-sided 90 percent set, lower end, studentised","As above, placebos studentised",10.82165840000001,10.82165840000001,0.28000000000000025,0.28000000000000025,11,0.3
+Margins and bounds,"Smallest loss rejected, one-sided, studentised","One-sided 90 percent bound of the main analysis, Western European pool, main sample (Figure 4.2, Table A1.14)",10.328182842355906,10.328182842355906,0.2672317946997526,0.2672317946997526,10,0.27

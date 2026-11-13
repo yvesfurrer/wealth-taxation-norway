@@ -1,0 +1,58 @@
+block,sample,variant,outcome,coef,se,p,n,rel_pct,p_webb,note
+outcome,main,y_main_grossgdp,y_main_grossgdp,3.815467979084973,0.6303762054977976,0.0037600167531902057,45,NA,NA,unadjusted OECD series: total revenue incl. petroleum / total GDP
+outcome,main,y_main_a23,y_main_a23,0.6038741581164067,0.6246852667700918,0.38844300291986944,45,NA,NA,petroleum production taxes (A23) additionally subtracted
+outcome,main,y_main_vintage,y_main_vintage,0.6676048406566311,0.6253692214745626,0.3458753163249723,45,NA,NA,vintage-consistent denominator (OECD-implied GDP x SSB mainland share)
+outcome,main,y_main_lpc,y_main_lpc,0.03157968816547492,0.024574067169478825,0.26812727898802835,45,3.157968816547492,NA,"log real revenue per capita (national currency, CPI 2015=100); rel_pct = coef x 100"
+outcome,main,y_main_rrbound,y_main_rrbound,0.2935098458879425,0.6246293896633041,0.6629034749500935,45,NA,NA,A112 above-trend excess subtracted from NOR 2022-2024 (linear trend fitted 2010-2021 for all samples; the six-point 2015-2020 trend is too unstable); over-corrects
+outcome,main,y_main_ex1300,y_main_ex1300,0.5293209683622004,0.389240590595335,0.2454685395682229,45,NA,0.42164216421642164,"OECD 1300 (DNK pension yield tax, ISL item) removed from all control series"
+outcome,main,y_main_np,y_main_np,0.05357202614495382,0.6246293896633038,0.9357738107463287,45,NA,0.916991699169917,MoF ex-ante non-package measures (NOK bn 2022/23/24: 15.20/33.05/19.38) subtracted from NOR; over-corrects
+outcome,main,y_main_npsym,y_main_npsym,0.2824829469653882,0.6246293896633041,0.6745358024392931,45,NA,0.6608660866086609,symmetric: non-package measures net of the non-package PIT reliefs (NOK bn 2022/23/24: 11.56/21.87/6.20) subtracted from NOR
+outcome,main,y_main_max,y_main_max,-0.07053493151209222,0.38924059059533495,0.8650130904198106,45,NA,0.8121812181218122,ex-1300 controls + A112 excess + non-package outside A112 subtracted from NOR; maximal over-correction
+outcome,full,y_main_grossgdp,y_main_grossgdp,2.435296434065936,0.7680636922784685,0.03383523252596472,75,NA,NA,unadjusted OECD series: total revenue incl. petroleum / total GDP
+outcome,full,y_main_a23,y_main_a23,-0.3174131018895979,0.7652965707007932,0.6995982537957051,75,NA,NA,petroleum production taxes (A23) additionally subtracted
+outcome,full,y_main_vintage,y_main_vintage,-0.056869316380423265,0.7638589604227863,0.9442268682905353,75,NA,NA,vintage-consistent denominator (OECD-implied GDP x SSB mainland share)
+outcome,full,y_main_lpc,y_main_lpc,-0.008356129255806677,0.03885602293681822,0.8402451667209675,75,-0.8356129255806677,NA,"log real revenue per capita (national currency, CPI 2015=100); rel_pct = coef x 100"
+outcome,full,y_main_rrbound,y_main_rrbound,-0.6011051009941368,0.7652423468074605,0.47607291958396497,75,NA,NA,A112 above-trend excess subtracted from NOR 2022-2024 (linear trend fitted 2010-2021 for all samples; the six-point 2015-2020 trend is too unstable); over-corrects
+outcome,full,y_main_ex1300,y_main_ex1300,-0.3925853648087535,0.4592454959767033,0.44081375041966814,75,NA,0.5051505150515051,"OECD 1300 (DNK pension yield tax, ISL item) removed from all control series"
+outcome,full,y_main_np,y_main_np,-0.841042920737125,0.7652423468074607,0.3334501459533868,75,NA,0.42844284428442847,MoF ex-ante non-package measures (NOK bn 2022/23/24: 15.20/33.05/19.38) subtracted from NOR; over-corrects
+outcome,full,y_main_npsym,y_main_npsym,-0.6121319999166908,0.7652423468074607,0.4685689826650565,75,NA,0.5000500050005,symmetric: non-package measures net of the non-package PIT reliefs (NOK bn 2022/23/24: 11.56/21.87/6.20) subtracted from NOR
+outcome,full,y_main_max,y_main_max,-0.9924412646830455,0.45924549597670317,0.09677781915324517,75,NA,0.37053705370537054,ex-1300 controls + A112 excess + non-package outside A112 subtracted from NOR; maximal over-correction
+outcome,noind,y_main_grossgdp,y_main_grossgdp,2.795113625000001,0.6064542765223598,0.009963567741938647,75,NA,NA,unadjusted OECD series: total revenue incl. petroleum / total GDP
+outcome,noind,y_main_a23,y_main_a23,0.03382775656891238,0.60645427652236,0.9581924203282721,75,NA,NA,petroleum production taxes (A23) additionally subtracted
+outcome,noind,y_main_vintage,y_main_vintage,0.29424319605118415,0.6064542765223598,0.6529192175555687,75,NA,NA,vintage-consistent denominator (OECD-implied GDP x SSB mainland share)
+outcome,noind,y_main_lpc,y_main_lpc,7.160667464358673e-4,0.029670185329686044,0.9819015319595298,75,0.07160667464358673,NA,"log real revenue per capita (national currency, CPI 2015=100); rel_pct = coef x 100"
+outcome,noind,y_main_rrbound,y_main_rrbound,-0.2501701222255788,0.6064542765223598,0.7011149824204456,75,NA,NA,A112 above-trend excess subtracted from NOR 2022-2024 (linear trend fitted 2010-2021 for all samples; the six-point 2015-2020 trend is too unstable); over-corrects
+outcome,noind,y_main_ex1300,y_main_ex1300,-0.0648347010585106,0.3154170287014661,0.8471779026910324,75,NA,NA,"OECD 1300 (DNK pension yield tax, ISL item) removed from all control series"
+outcome,noind,y_main_np,y_main_np,-0.4901079419685674,0.6064542765223598,0.4643226453342943,75,NA,NA,MoF ex-ante non-package measures (NOK bn 2022/23/24: 15.20/33.05/19.38) subtracted from NOR; over-corrects
+outcome,noind,y_main_npsym,y_main_npsym,-0.2611970211481329,0.6064542765223598,0.688882758166271,75,NA,NA,symmetric: non-package measures net of the non-package PIT reliefs (NOK bn 2022/23/24: 11.56/21.87/6.20) subtracted from NOR
+outcome,noind,y_main_max,y_main_max,-0.6646906009328027,0.3154170287014661,0.10279847715179126,75,NA,NA,ex-1300 controls + A112 excess + non-package outside A112 subtracted from NOR; maximal over-correction
+sample,main,excl 2024,y_main,0.9583407745818647,0.7541309690849706,0.27268224027307786,40,NA,NA,
+sample,main,incl 2021 (2015-2024),y_main,0.38725163200507495,0.6964479159841926,0.607819762518617,50,NA,NA,2021 as pre-year
+sample,main,LOO SWE,y_main,0.4112862412232243,0.8452770241398176,0.659894745093695,36,NA,NA,
+sample,main,LOO DNK,y_main,0.18234178667776946,0.5800073949867474,0.7738285877138181,36,NA,NA,
+sample,main,LOO FIN,y_main,0.8720228542768356,0.8000260600307867,0.3554381014002119,36,NA,NA,
+sample,main,LOO ISL,y_main,0.9797531090644461,0.6713869407262782,0.24058440972564432,36,NA,NA,
+sample,main,from 2010 (= full),y_main,-0.28190051316040127,0.7652423468074608,0.7312570562031755,75,NA,NA,
+sample,main,from 2010 excl 2021,y_main,-0.22649093786474178,0.7290419475836505,0.7715673910572219,70,NA,NA,
+sample,main,no ISL indicator,y_main,1.1573638729533349,0.5090842103895836,0.08540417593393991,45,NA,NA,main sample without the ISL2016 indicator
+sample,main,"noind (2010-2024, no indicators)",y_main,0.06903446560815686,0.6064542765223598,0.9148549981939678,75,NA,NA,full sample without indicators
+sample,full,excl 2024,y_main,0.07086926324303744,0.8589779199599877,0.9382094635840981,70,NA,NA,
+sample,full,LOO SWE,y_main,-0.46784139725705987,1.0741928644331888,0.6926118979261265,60,NA,NA,
+sample,full,LOO DNK,y_main,-0.8163031713791685,0.7064673765158355,0.33156976022838175,60,NA,NA,
+sample,full,LOO FIN,y_main,-0.11248435380699665,1.0601031982786127,0.922194697821269,60,NA,NA,
+sample,full,LOO ISL,y_main,0.25318641734818836,0.6654827052800459,0.7289478123671917,60,NA,NA,
+sample,main,excl 2024,y_h2,0.7835387147077456,0.3349919525594299,0.07946718279714497,40,NA,NA,
+sample,main,incl 2021 (2015-2024),y_h2,0.6503009099618027,0.36961788486861635,0.15332647302622965,50,NA,NA,2021 as pre-year
+sample,main,LOO SWE,y_h2,0.4958481747481311,0.2313695498395127,0.12149664426569991,36,NA,NA,
+sample,main,LOO DNK,y_h2,0.9590551094800662,0.5363603393070443,0.17171929519686985,36,NA,NA,
+sample,main,LOO FIN,y_h2,1.0509470255639821,0.45295415847113485,0.10306478061282448,36,NA,NA,
+sample,main,LOO ISL,y_h2,0.7910378314273487,0.5393996412394234,0.23877693634738328,36,NA,NA,
+sample,main,from 2010 (= full),y_h2,0.31080346631131645,0.33774334262428324,0.40952480198521946,75,NA,NA,
+sample,main,from 2010 excl 2021,y_h2,0.3737323582648872,0.3523234992296658,0.34859892039039625,70,NA,NA,
+sample,main,no ISL indicator,y_h2,0.7891719008717928,0.37853735333722094,0.10544969024127812,45,NA,NA,main sample without the ISL2016 indicator
+sample,main,"noind (2010-2024, no indicators)",y_h2,0.33887827068700827,0.3158485746836106,0.34372660697579427,75,NA,NA,full sample without indicators
+sample,full,excl 2024,y_h2,0.26671877041314446,0.274864425322565,0.3868133359381016,70,NA,NA,
+sample,full,LOO SWE,y_h2,0.006133730676866546,0.0731762784178868,0.9384785313284983,60,NA,NA,
+sample,full,LOO DNK,y_h2,0.434452106363269,0.43998144747395895,0.3962314407271803,60,NA,NA,
+sample,full,LOO FIN,y_h2,0.43659660810877315,0.4483935819779173,0.40202479850489037,60,NA,NA,
+sample,full,LOO ISL,y_h2,0.3593192322634724,0.46098474963241604,0.4925477961375897,60,NA,NA,

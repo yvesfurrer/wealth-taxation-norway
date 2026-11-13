@@ -1,0 +1,24 @@
+tab_ladder -- specification ladder, TWFE FE iso+year + one-off indicators, cluster iso (G=5)
+Cumulative covariates; Brent enters as NOR x log(Brent) (collinear with year FE otherwise).
+
+sample outcome spec                   coef       se        p    N
+main  y_main  baseline              0.613    0.625   0.3822   45
+main  y_main  + log GDP pc          0.620    0.638   0.3864   45
+main  y_main  + inflation           0.861    0.582   0.2134   45
+main  y_main  + log population      0.728    0.594   0.2875   45
+main  y_main  + NOR x log(Brent)    0.282    0.742   0.7237   45
+main  y_h2    baseline              0.824    0.398   0.1071   45
+main  y_h2    + log GDP pc          0.810    0.414   0.1217   45
+main  y_h2    + inflation           0.434    0.497   0.4325   45
+main  y_h2    + log population      0.359    0.519   0.5274   45
+main  y_h2    + NOR x log(Brent)    0.685    0.687   0.3750   45
+full  y_main  baseline             -0.282    0.765   0.7313   75
+full  y_main  + log GDP pc         -0.098    0.791   0.9074   75
+full  y_main  + inflation          -0.339    0.971   0.7445   75
+full  y_main  + log population     -0.456    0.914   0.6441   75
+full  y_main  + NOR x log(Brent)   -0.657    0.813   0.4643   75
+full  y_h2    baseline              0.311    0.338   0.4095   75
+full  y_h2    + log GDP pc          0.385    0.374   0.3610   75
+full  y_h2    + inflation           0.065    0.276   0.8253   75
+full  y_h2    + log population     -0.007    0.324   0.9845   75
+full  y_h2    + NOR x log(Brent)   -0.078    0.297   0.8059   75

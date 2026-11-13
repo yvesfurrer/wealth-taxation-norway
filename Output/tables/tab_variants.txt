@@ -1,0 +1,77 @@
+tab_variants -- outcome, confounder and sample variants, TWFE (cluster iso)
+Samples: main = 2015-2024 excl. 2021 + ISL2016 indicator; full = 2010-2024 + ISL2016, DNK2014 indicators; noind = 2010-2024 without indicators.
+p_webb: Webb wild bootstrap p (B=9999) for the confounder variants (main, full).
+MDES_b(ex1300) = max |placebo|: full 1.343, main 0.945, noind 1.000.
+
+block   sample variant                      outcome             coef      se       p   N rel_pct  p_webb
+outcome main   y_main_grossgdp              y_main_grossgdp    3.815   0.630  0.0038  45                
+outcome main   y_main_a23                   y_main_a23         0.604   0.625  0.3884  45                
+outcome main   y_main_vintage               y_main_vintage     0.668   0.625  0.3459  45                
+outcome main   y_main_lpc                   y_main_lpc         0.032   0.025  0.2681  45    3.16        
+outcome main   y_main_rrbound               y_main_rrbound     0.294   0.625  0.6629  45                
+outcome main   y_main_ex1300                y_main_ex1300      0.529   0.389  0.2455  45          0.4216
+outcome main   y_main_np                    y_main_np          0.054   0.625  0.9358  45          0.9170
+outcome main   y_main_npsym                 y_main_npsym       0.282   0.625  0.6745  45          0.6609
+outcome main   y_main_max                   y_main_max        -0.071   0.389  0.8650  45          0.8122
+outcome full   y_main_grossgdp              y_main_grossgdp    2.435   0.768  0.0338  75                
+outcome full   y_main_a23                   y_main_a23        -0.317   0.765  0.6996  75                
+outcome full   y_main_vintage               y_main_vintage    -0.057   0.764  0.9442  75                
+outcome full   y_main_lpc                   y_main_lpc        -0.008   0.039  0.8402  75   -0.84        
+outcome full   y_main_rrbound               y_main_rrbound    -0.601   0.765  0.4761  75                
+outcome full   y_main_ex1300                y_main_ex1300     -0.393   0.459  0.4408  75          0.5052
+outcome full   y_main_np                    y_main_np         -0.841   0.765  0.3335  75          0.4284
+outcome full   y_main_npsym                 y_main_npsym      -0.612   0.765  0.4686  75          0.5001
+outcome full   y_main_max                   y_main_max        -0.992   0.459  0.0968  75          0.3705
+outcome noind  y_main_grossgdp              y_main_grossgdp    2.795   0.606  0.0100  75                
+outcome noind  y_main_a23                   y_main_a23         0.034   0.606  0.9582  75                
+outcome noind  y_main_vintage               y_main_vintage     0.294   0.606  0.6529  75                
+outcome noind  y_main_lpc                   y_main_lpc         0.001   0.030  0.9819  75    0.07        
+outcome noind  y_main_rrbound               y_main_rrbound    -0.250   0.606  0.7011  75                
+outcome noind  y_main_ex1300                y_main_ex1300     -0.065   0.315  0.8472  75                
+outcome noind  y_main_np                    y_main_np         -0.490   0.606  0.4643  75                
+outcome noind  y_main_npsym                 y_main_npsym      -0.261   0.606  0.6889  75                
+outcome noind  y_main_max                   y_main_max        -0.665   0.315  0.1028  75                
+sample  main   excl 2024                    y_main             0.958   0.754  0.2727  40                
+sample  main   incl 2021 (2015-2024)        y_main             0.387   0.696  0.6078  50                
+sample  main   LOO SWE                      y_main             0.411   0.845  0.6599  36                
+sample  main   LOO DNK                      y_main             0.182   0.580  0.7738  36                
+sample  main   LOO FIN                      y_main             0.872   0.800  0.3554  36                
+sample  main   LOO ISL                      y_main             0.980   0.671  0.2406  36                
+sample  main   from 2010 (= full)           y_main            -0.282   0.765  0.7313  75                
+sample  main   from 2010 excl 2021          y_main            -0.226   0.729  0.7716  70                
+sample  main   no ISL indicator             y_main             1.157   0.509  0.0854  45                
+sample  main   noind (2010-2024, no indicators) y_main             0.069   0.606  0.9149  75                
+sample  full   excl 2024                    y_main             0.071   0.859  0.9382  70                
+sample  full   LOO SWE                      y_main            -0.468   1.074  0.6926  60                
+sample  full   LOO DNK                      y_main            -0.816   0.706  0.3316  60                
+sample  full   LOO FIN                      y_main            -0.112   1.060  0.9222  60                
+sample  full   LOO ISL                      y_main             0.253   0.665  0.7289  60                
+sample  main   excl 2024                    y_h2               0.784   0.335  0.0795  40                
+sample  main   incl 2021 (2015-2024)        y_h2               0.650   0.370  0.1533  50                
+sample  main   LOO SWE                      y_h2               0.496   0.231  0.1215  36                
+sample  main   LOO DNK                      y_h2               0.959   0.536  0.1717  36                
+sample  main   LOO FIN                      y_h2               1.051   0.453  0.1031  36                
+sample  main   LOO ISL                      y_h2               0.791   0.539  0.2388  36                
+sample  main   from 2010 (= full)           y_h2               0.311   0.338  0.4095  75                
+sample  main   from 2010 excl 2021          y_h2               0.374   0.352  0.3486  70                
+sample  main   no ISL indicator             y_h2               0.789   0.379  0.1054  45                
+sample  main   noind (2010-2024, no indicators) y_h2               0.339   0.316  0.3437  75                
+sample  full   excl 2024                    y_h2               0.267   0.275  0.3868  70                
+sample  full   LOO SWE                      y_h2               0.006   0.073  0.9385  60                
+sample  full   LOO DNK                      y_h2               0.434   0.440  0.3962  60                
+sample  full   LOO FIN                      y_h2               0.437   0.448  0.4020  60                
+sample  full   LOO ISL                      y_h2               0.359   0.461  0.4925  60                
+
+notes:
+  y_main_grossgdp              unadjusted OECD series: total revenue incl. petroleum / total GDP
+  y_main_a23                   petroleum production taxes (A23) additionally subtracted
+  y_main_vintage               vintage-consistent denominator (OECD-implied GDP x SSB mainland share)
+  y_main_lpc                   log real revenue per capita (national currency, CPI 2015=100); rel_pct = coef x 100
+  y_main_rrbound               A112 above-trend excess subtracted from NOR 2022-2024 (linear trend fitted 2010-2021 for all samples; the six-point 2015-2020 trend is too unstable); over-corrects
+  y_main_ex1300                OECD 1300 (DNK pension yield tax, ISL item) removed from all control series
+  y_main_np                    MoF ex-ante non-package measures (NOK bn 2022/23/24: 15.20/33.05/19.38) subtracted from NOR; over-corrects
+  y_main_npsym                 symmetric: non-package measures net of the non-package PIT reliefs (NOK bn 2022/23/24: 11.56/21.87/6.20) subtracted from NOR
+  y_main_max                   ex-1300 controls + A112 excess + non-package outside A112 subtracted from NOR; maximal over-correction
+  incl 2021 (2015-2024)        2021 as pre-year
+  no ISL indicator             main sample without the ISL2016 indicator
+  noind (2010-2024, no indicators) full sample without indicators

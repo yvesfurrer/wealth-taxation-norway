@@ -1,0 +1,36 @@
+tab_calibration -- Table A1.12: mechanical yield of the package against behavioural losses implied by the literature
+NOK billion per year; percent of mainland GDP 2022 (mechanical yields of the wealth tax and PIT measures: 2024). 1 pp = NOK 38.6 bn at 2022 values.
+
+block              component                                      NOK bn           % mainland GDP
+Mechanical yield   Wealth tax measures                            6.5              0.15
+Mechanical yield   PIT measures, gross                            11.2             0.27
+Mechanical yield   Package                                                         0.3-0.4
+Behavioural loss   Wealth tax base, elasticities with respect to the net-of-tax return 0.3-1.0          0.01-0.02
+Behavioural loss   Wealth tax base, elasticities with respect to the net-of-tax rate 0.01-0.03        0.00-0.00
+Behavioural loss   Migration, Swedish semi-elasticities           1.6              0.04
+Behavioural loss   Upper envelope: subnational base response      2.8              0.07
+Behavioural loss   Taxes paid by the emigrants                    0.3-1.1          0.01-0.03
+Behavioural loss   Calibrated total                               1.6-2.5 (4.4)    0.04-0.06 (0.11)
+Margins and bounds Delta1 (H1 and H2): revenue of the net wealth tax 26-31            0.7
+Margins and bounds Delta2 (PIT check): gross mechanical PIT increase 11.2             0.27
+Margins and bounds Nordic detection threshold (MDES_b)            68               1.75
+Margins and bounds Two-sided 90 percent set, lower end, unscaled  68               1.8
+Margins and bounds Two-sided 90 percent set, lower end, studentised 11               0.3
+Margins and bounds Smallest loss rejected, one-sided, studentised 10               0.27
+
+Basis:
+  Wealth tax measures                            Ministry of Finance ex-ante estimates, 2022 and 2023 budgets
+  PIT measures, gross                            Bracket tax and dividend tax, 2022 to 2024 budgets, net of reliefs about zero
+  Package                                        Average 2022-2024 to fully implemented (2024), percent of the year's mainland GDP
+  Wealth tax base, elasticities with respect to the net-of-tax return Elasticity 0.2-0.4 (Jakobsen et al., 2020), net-of-tax return -6 to -9 percent, base -1 to -4 percent
+  Wealth tax base, elasticities with respect to the net-of-tax rate Elasticity 0.09-0.27 (Seim, 2017), net-of-tax rate 1 - tau -0.25 to -0.41 percent, base -0.02 to -0.11 percent
+  Migration, Swedish semi-elasticities           0.24 kronor lost per krona raised, income taxes of leavers included
+  Upper envelope: subnational base response      43 percent of the base per percentage point (Switzerland), not applicable across a national border
+  Taxes paid by the emigrants                    Annual tax payments of the emigrants reported in the debate (Chapter 2.2, Table A1.15)
+  Calibrated total                               Smallest to largest national estimate plus migration, envelope in brackets
+  Delta1 (H1 and H2): revenue of the net wealth tax 2022-2024 average
+  Delta2 (PIT check): gross mechanical PIT increase As above
+  Nordic detection threshold (MDES_b)            Largest absolute Nordic placebo (Table A1.6)
+  Two-sided 90 percent set, lower end, unscaled  Western European pool, main sample (Table 4.1)
+  Two-sided 90 percent set, lower end, studentised As above, placebos studentised
+  Smallest loss rejected, one-sided, studentised One-sided 90 percent bound of the main analysis, Western European pool, main sample (Figure 4.2, Table A1.14)

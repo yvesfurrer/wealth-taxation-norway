@@ -1,0 +1,22 @@
+tab_assumption_map -- mapping of robustness checks -> assumptions (Table A1.2); (i) to (iv): assumptions from Chapter 3.4 in the order given there
+
+check                                                              probes                                                                   reported_in
+Main specification: 2015-2024 excl. 2021, ISL2016 indicator        (i) parallel trends (pre-period 2015-2020), (iv) anticipation (2021 excluded) Table 4.1
+Full sample 2010-2024 with ISL2016 and DNK2014 indicators          (i) parallel trends: documented pre-2015 relative decline                Table 4.1
+One-off indicators in all regressions (ISL2016, DNK2014)           Measurement: one-off revenue (Icelandic bank resolution 2016, Danish capital pension restructuring 2014) Tables 4.1, A1.3 to A1.6, A1.8 to A1.11
+Specification ladder (covariates, NOR x log Brent)                 (i) robustness to observables (diagnostic only, bad controls)            Table A1.4
+Outcome variants (gross GDP, A23, vintage, log per capita)         Measurement: construction of the mainland outcome                        Table A1.5
+Resource rent bounding variant (A112 excess)                       (ii) no confounding treatments, revenue side                             Table A1.5
+Control-side variant: OECD 1300 removed (ex-1300)                  (ii) no confounding treatments, control side (DNK pension yield tax)     Table A1.5
+Treated-side variant: non-package measures subtracted              (ii) no confounding treatments, treated side (ex-ante bound, one-sided)  Table A1.5
+Treated-side variant: non-package measures net of the PIT reliefs subtracted (symmetric) (ii) no confounding treatments, treated side (ex-ante, both directions)  Table A1.5
+Maximal variant (ex-1300 + A112 excess + non-package)              (ii) both sides, deliberate over-correction                              Table A1.5
+Sample variants: excl. 2024, incl. 2021, from 2010, start years 2010-2017, no indicators (i) and (iv), data status                                                Table A1.5, Figure A2.6
+Leave-one-out controls                                             (iii) no spillovers, no single-control dependence                        Table A1.5
+Country placebos, Nordic (per sample)                              Design-based inference, detection threshold MDES_b                       Table A1.6
+Country placebos, Western European pool (studentised)              Design-based inference, confidence sets by test inversion                Tables 4.1, A1.8, A1.9
+Timing placebos (fake 2018 in 2015-2020, fake 2016 in 2010-2021)   (i) parallel trends, pre-period                                          Table A1.6
+Event-study leads, Wald-HC1, linear drift                          (i) parallel trends, (iv) anticipation                                   Table A1.3
+SDID on two donor pools, three panel variants (full, excl. 2021, main) (i) approximate parallel trends (reweighting), (iv) anticipation         Table A1.7
+Western European pool: Northern and Western European OECD members, pre-2000 accession, no GDP distortion, no tax increase of its own Donor screening rule for (ii), control side                              Table A3.1
+Break-even bias for H1 and H2 at five margins (margin ladder), inversion for the corrected outcomes (A112 excess, non-package measures gross and net of the PIT reliefs, PIT reliefs added back to H2), for the pools without Sweden and without France and for the pool with the ex-1300 control series, and sensitivity of the studentised set to s_NOR (i) and (ii): size of the bias in Norway's post-period outcome that overturns each conclusion Tables A1.8, A1.13, A1.14, Figure 4.2

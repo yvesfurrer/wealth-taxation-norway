@@ -1,0 +1,47 @@
+tab_scale_sens -- Table A1.13: studentised 90% set, smallest loss rejected (delta_min) and p(loss >= Delta1) on the Western European pool (main) as a function of s_NOR; Panel A y_main, Panel B y_h2
+
+y_main: b_NOR +0.1772, max |t_g| 1.664 (two-sided set), max t_g 1.617 (one-sided loss test), n_pre 6, estimated s_NOR 0.2748, chi-square 90% interval for the true SD 0.185 to 0.574, break-even s 0.542
+
+  s_NOR  cs90_lo  cs90_hi delta_min p_loss_d1   rej_10  note
+ 0.1000   +0.011   +0.344    -0.015     0.091     TRUE  
+ 0.1500   -0.072   +0.427    +0.065     0.091     TRUE  
+ 0.1847   -0.130   +0.485    +0.121     0.091     TRUE  lower end of 90% chi-square interval
+ 0.2000   -0.156   +0.510    +0.146     0.091     TRUE  
+ 0.2500   -0.239   +0.593    +0.227     0.091     TRUE  
+ 0.2748   -0.280   +0.635    +0.267     0.091     TRUE  estimated s_NOR (Table 4.1)
+ 0.3000   -0.322   +0.676    +0.308     0.091     TRUE  
+ 0.3500   -0.405   +0.760    +0.389     0.091     TRUE  
+ 0.4000   -0.488   +0.843    +0.470     0.091     TRUE  
+ 0.4500   -0.572   +0.926    +0.550     0.091     TRUE  
+ 0.5000   -0.655   +1.009    +0.631     0.091     TRUE  
+ 0.5424   -0.725   +1.080    +0.700     0.091     TRUE  break-even s (rejection of Delta1 lost above)
+ 0.5500   -0.738   +1.093    +0.712     0.273    FALSE  
+ 0.5742   -0.778   +1.133    +0.751     0.273    FALSE  upper end of 90% chi-square interval
+ 0.6000   -0.821   +1.176    +0.793     0.273    FALSE  
+ 0.6500   -0.905   +1.259    +0.874     0.273    FALSE  
+ 0.7000   -0.988   +1.342    +0.955     0.273    FALSE  
+ 0.7500   -1.071   +1.425    +1.036     0.455    FALSE  
+ 0.8000   -1.154   +1.509    +1.116     0.455    FALSE  
+
+y_h2: b_NOR +0.4328, max |t_g| 2.418 (two-sided set), max t_g 1.890 (one-sided loss test), n_pre 6, estimated s_NOR 0.2225, chi-square 90% interval for the true SD 0.150 to 0.465, break-even s 0.599
+
+  s_NOR  cs90_lo  cs90_hi delta_min p_loss_d1   rej_10  note
+ 0.1000   +0.191   +0.675    -0.244     0.091     TRUE  
+ 0.1496   +0.071   +0.795    -0.150     0.091     TRUE  lower end of 90% chi-square interval
+ 0.1500   +0.070   +0.796    -0.149     0.091     TRUE  
+ 0.2000   -0.051   +0.916    -0.055     0.091     TRUE  
+ 0.2225   -0.105   +0.971    -0.012     0.091     TRUE  estimated s_NOR (Table 4.1)
+ 0.2500   -0.172   +1.037    +0.040     0.091     TRUE  
+ 0.3000   -0.293   +1.158    +0.134     0.091     TRUE  
+ 0.3500   -0.414   +1.279    +0.229     0.091     TRUE  
+ 0.4000   -0.535   +1.400    +0.323     0.091     TRUE  
+ 0.4500   -0.655   +1.521    +0.418     0.091     TRUE  
+ 0.4649   -0.692   +1.557    +0.446     0.091     TRUE  upper end of 90% chi-square interval
+ 0.5000   -0.776   +1.642    +0.512     0.091     TRUE  
+ 0.5500   -0.897   +1.763    +0.607     0.091     TRUE  
+ 0.5993   -1.017   +1.882    +0.700     0.091     TRUE  break-even s (rejection of Delta1 lost above)
+ 0.6000   -1.018   +1.884    +0.701     0.182    FALSE  
+ 0.6500   -1.139   +2.005    +0.796     0.182    FALSE  
+ 0.7000   -1.260   +2.126    +0.890     0.182    FALSE  
+ 0.7500   -1.381   +2.247    +0.985     0.182    FALSE  
+ 0.8000   -1.502   +2.367    +1.079     0.182    FALSE  

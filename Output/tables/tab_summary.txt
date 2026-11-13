@@ -1,0 +1,39 @@
+          group     country outcome pre_mean pre_sd pre_mean_main pre_sd_main post_mean post_sd level_2021
+         Nordic      Norway  y_main    41.98   0.65         41.55        0.25     41.12    0.34      43.04
+         Nordic      Norway    y_h2    12.72   0.42         12.52        0.28     12.91    0.21      13.82
+         Nordic      Norway   y_pit    12.19   0.42         12.00        0.28     12.19    0.19      13.29
+         Nordic      Norway   y_cit     3.02   0.40          2.82        0.25      3.65    0.63       3.55
+         Nordic     Denmark  y_main    46.17   1.29         46.10        1.08     43.74    1.58      47.47
+         Nordic     Denmark    y_h2    24.50   0.98         24.65        0.62     24.58    1.07      25.06
+         Nordic     Denmark   y_pit    24.50   0.98         24.65        0.62     24.58    1.07      25.06
+         Nordic     Denmark   y_cit     2.94   0.45          3.04        0.18      3.76    0.40       4.00
+         Nordic     Finland  y_main    42.85   1.01         43.06        0.76     42.80    0.61      43.54
+         Nordic     Finland    y_h2    12.66   0.43         12.69        0.38     12.94    0.17      12.97
+         Nordic     Finland   y_pit    12.66   0.43         12.69        0.38     12.94    0.17      12.97
+         Nordic     Finland   y_cit     2.38   0.27          2.40        0.25      2.82    0.22       2.75
+         Nordic     Iceland  y_main    36.02   4.61         38.03        5.84     35.91    1.01      34.46
+         Nordic     Iceland    y_h2    13.59   0.93         14.04        0.86     13.65    0.16      14.25
+         Nordic     Iceland   y_pit    13.41   1.05         14.03        0.87     13.65    0.16      14.25
+         Nordic     Iceland   y_cit     2.14   0.60          2.37        0.33      3.04    0.42       1.96
+         Nordic      Sweden  y_main    43.15   0.80         43.63        0.84     42.00    0.76      43.13
+         Nordic      Sweden    y_h2    12.51   0.53         12.86        0.49     11.50    0.42      12.48
+         Nordic      Sweden   y_pit    12.51   0.53         12.86        0.49     11.50    0.42      12.48
+         Nordic      Sweden   y_cit     2.91   0.25          2.89        0.10      3.62    0.21       3.36
+ Western Europe     Austria  y_main    42.58   0.76         42.69        0.53     42.98    0.38      43.52
+ Western Europe     Austria    y_h2     9.44   0.42          9.40        0.52      9.39    0.16       9.57
+ Western Europe     Austria   y_pit     9.44   0.42          9.40        0.52      9.39    0.16       9.57
+ Western Europe     Belgium  y_main    43.46   0.96         43.29        0.95     42.01    0.52      42.23
+ Western Europe     Belgium    y_h2    12.06   0.50         11.87        0.40     11.82    0.19      11.30
+ Western Europe     Belgium   y_pit    12.06   0.50         11.87        0.40     11.82    0.19      11.30
+ Western Europe      France  y_main    44.92   1.12         45.55        0.48     44.39    1.28      45.06
+ Western Europe      France    y_h2     8.90   0.57          9.19        0.37      9.55    0.21       9.42
+ Western Europe      France   y_pit     8.73   0.62          9.04        0.44      9.46    0.21       9.34
+ Western Europe     Germany  y_main    37.38   1.14         38.00        0.48     37.99    0.68      39.05
+ Western Europe     Germany    y_h2     9.66   0.64         10.06        0.26     10.11    0.29      10.31
+ Western Europe     Germany   y_pit     9.66   0.64         10.06        0.26     10.11    0.29      10.31
+ Western Europe Netherlands  y_main    37.05   1.39         38.00        0.84     38.62    0.60      38.26
+ Western Europe Netherlands    y_h2     7.63   0.71          7.96        0.69      8.89    1.08       8.35
+ Western Europe Netherlands   y_pit     7.63   0.72          7.96        0.69      8.89    1.08       8.35
+ Western Europe Switzerland  y_main    26.90   0.78         27.39        0.42     26.90    0.27      27.97
+ Western Europe Switzerland    y_h2     9.35   0.34          9.55        0.30      9.54    0.07       9.66
+ Western Europe Switzerland   y_pit     8.34   0.24          8.48        0.24      8.40    0.07       8.49
